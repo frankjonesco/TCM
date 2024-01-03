@@ -11,20 +11,20 @@
             @method('POST')
 
 
-            {{-- EMAIL --}}
+            {{-- USERNAME --}}
 
             <div class="field">
 
-                <label for="email">
-                    Email
+                <label for="username">
+                    Email or username
                 </label>
 
                 <input 
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value="{{$errors->has('email') ? null : old('email')}}"
-                    {{$errors->has('email') ? 'autofocus' : null}}
+                    type="text"
+                    name="username"
+                    placeholder="Email or username"
+                    value="{{$errors->has('username') ? null : old('username')}}"
+                    {{$errors->has('username') ? 'autofocus' : null}}
                 >
 
             </div>

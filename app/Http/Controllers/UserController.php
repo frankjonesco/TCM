@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
 use Illuminate\Http\RedirectResponse;
 
@@ -34,12 +35,24 @@ class UserController extends Controller
 
     public function authenticate(Request $request) : RedirectResponse
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
+        $request->validate([
+            'username' => 'required',
             'password' => 'required'
         ]);
 
-        if(auth()->attempt($credentials)){
+
+        $user = User::where('email', $request->username)->orWhere('username', $request->username)->first();
+
+
+        if(empty($user))
+            return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
+        
+        
+
+        if(
+            auth()->attempt(['email' => $user->email, 'password' => $request->password]) || 
+            auth()->attempt(['username' => $user->username, 'password' => $request->password])
+        ){                
             $request->session()->regenerate();
             return redirect('/admin')->with('toast', 'Welcome back!');
         }
