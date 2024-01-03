@@ -1,0 +1,296 @@
+/*************************/
+/* SITE NAV */
+/*************************/
+
+
+#siteNav{
+
+    @apply fixed;
+
+    @apply w-screen;
+    @apply h-20;
+
+    @apply flex;
+    @apply items-center;
+
+    @apply bg-white;
+    @apply border-b;
+
+    @apply shadow;
+
+    @apply text-3xl;
+
+    @apply z-40;
+
+
+    .container{
+
+        @apply flex;
+        @apply justify-center;
+
+
+        span{
+
+            @apply w-[12.5%];
+
+
+            &:nth-child(2){
+            
+                @apply w-3/4;
+
+                @apply text-center;
+                @apply font-logo;
+            
+            }
+
+
+            &:nth-child(3){
+
+                @apply flex;
+                @apply justify-end;
+                @apply gap-9;
+
+            }
+    
+        }
+
+
+        a{
+
+            @apply no-underline;
+            @apply hover:text-inherit;
+            @apply hover-dip;
+
+        }
+
+    }
+
+}
+
+
+
+
+/*************************/
+/* MAIN MENU */
+/*************************/
+
+
+#mainMenu{
+
+    @apply fixed;
+    @apply left-0;
+    @apply top-0;
+
+    @apply w-screen;
+    @apply h-screen;
+
+    @apply flex;
+
+    @apply bg-gradient-to-t;
+    @apply from-white;
+    @apply to-white;
+    @apply border-r;
+    
+    @apply shadow;
+
+    
+    @apply text-5xl;
+    @apply font-black;
+    @apply font-roboto-slab;
+
+    @apply z-50;
+
+    @apply animate-300;
+
+
+    .container{
+
+
+        /* CLOSE MENU ICON */
+
+        &.close-icon{
+
+            @apply absolute;
+            @apply right-0;
+            @apply h-20;
+
+            @apply flex;
+            @apply justify-end;
+            @apply items-center;
+            
+
+            a{
+
+                @apply hover-spin;
+
+            }
+
+        }
+
+
+        /* MAIN MENU ITEMS */
+
+        &.menuItems{
+
+            @apply w-fit;
+            @apply mx-auto;
+
+            @apply flex;
+            @apply flex-col;
+            @apply justify-center;
+            @apply items-center;
+
+
+            span{
+
+                a{
+
+                    @apply px-4;
+                    @apply py-1;
+
+                    @apply no-underline;
+                
+                    @apply hover-dip;
+                    @apply hover:bg-yellow-300;
+                    @apply hover:text-inherit;
+
+                }
+            
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+/*************************/
+/* SEARCH BAR */
+/*************************/
+
+
+#navSearchBar{
+
+    @apply fixed;
+    @apply top-0;
+    @apply left-0;
+    @apply w-screen;
+
+    @apply text-gray-600;
+    
+    @apply z-30;
+
+    @apply animate-150;
+
+
+    form{
+
+        input{
+            
+            @apply py-4;
+            @apply w-full;
+        
+            @apply bg-gray-50;
+            @apply border-0;
+            @apply rounded-none;
+            @apply shadow;
+            @apply outline-0;
+
+            @apply text-2xl;
+            @apply text-center;
+            @apply font-poppins;
+            @apply font-medium;
+            
+            @apply placeholder:text-gray-400;
+            @apply placeholder:font-thin;
+            @apply focus:outline-none;
+            @apply focus:border-0;
+            
+        }
+
+    }
+
+}
+
+
+
+
+/*************************/
+/* ADMIN NAVIGATION */
+/*************************/
+
+
+nav.admin-nav{
+
+    @apply fixed;
+    @apply left-0;
+    @apply top-20;
+    @apply w-screen;
+    @apply h-12;
+
+    @apply bg-gray-100;
+    @apply border-b;
+    @apply border-slate-300;
+
+    @apply z-40;
+
+
+    .container{
+
+        @apply h-full;
+
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply gap-3;
+
+    }
+
+    
+}
+
+
+
+
+
+/*************************/
+/* SIDE NAVIGATION */
+/*************************/
+
+
+.side-nav{
+
+    @apply fixed;
+    @apply left-0;
+    @apply top-1/2;
+    @apply -translate-y-1/2;
+
+    
+
+    @apply w-fit;
+
+    @apply flex;
+    
+
+    @apply bg-sky-50;
+    @apply border;
+    @apply border-slate-300;
+
+
+    ul{
+
+        @apply flex;
+        @apply flex-col;
+        @apply gap-3;
+
+        @apply mx-auto;
+        @apply p-6;
+
+    
+    }
+
+    
+}

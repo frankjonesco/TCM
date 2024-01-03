@@ -1,0 +1,93 @@
+/*************************/
+/* HTML BLOCKS */
+/*************************/
+
+
+/* BODY */
+
+body{
+
+    @apply w-screen;
+    @apply h-screen;
+
+    @apply flex;
+    @apply flex-col;
+
+}
+
+
+/* MAIN */
+
+main{
+    
+    @apply my-20;
+    @apply py-5;
+
+    @apply grow;
+    
+}
+
+
+
+
+/*************************/
+/* CONTAINERS */
+/*************************/
+
+
+/* CONTAINER DEFAULT */
+
+.container{
+    
+    @apply w-full;
+    @apply lg:w-3/4;
+    
+    @apply mx-auto;
+    @apply px-6;
+    
+}
+
+
+
+
+/*************************/
+/* GRIDS */
+/*************************/
+
+
+/* CONTENT GRID */
+
+.content-grid{
+    @apply grid;
+    @apply grid-cols-4;
+    @apply gap-3;
+}
+
+
+
+
+
+/*************************/
+/* SINGLE SPECIFIC BLOCKS */
+/*************************/
+
+
+/* BLACKOUT */
+
+#blackout{
+
+    @apply fixed;
+    @apply left-0;
+    @apply top-0;
+
+    @apply w-screen;
+    @apply h-screen;
+
+    @apply bg-black;
+    @apply bg-opacity-80;
+
+    @apply z-20;
+
+    @apply animate-300;
+
+}
