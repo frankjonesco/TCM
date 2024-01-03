@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,14 +34,42 @@ use App\Http\Controllers\SiteController;
 
 
 
-// SITE CONTROLLER
+// SITE CONTROLLER 
 
-    // ALL USERS
 
-    Route::controller(SiteController::class)->group(function(){
-        
-        Route::get('/', 'viewHome');
-        
+// ALL USERS
+
+Route::controller(SiteController::class)->group(function(){
+
+    Route::get('/', 'viewHome');
+    Route::get('/about', 'viewAbout');
+    Route::get('/contact-us', 'viewContactUs');
+    Route::get('/opportunities', 'viewOpportunities');
+    Route::get('/privacy-policy', 'viewPrivacyPolicy');
+    Route::get('/terms-of-use', 'viewTermsOfUse');
+
+});
+
+
+
+
+// USER CONTROLLER
+
+
+    // AUTHENTICATED USERS
+
+    Route::controller(UserController::class)->middleware('auth')->group(function(){
+            
+        Route::post('/logout', 'logout');
+
     });
 
 
+    // GUEST USERS
+
+    Route::controller(UserController::class)->middleware('guest')->group(function(){
+
+        Route::get('/login', 'viewLogin')->name('login');
+        Route::post('/authenticate', 'authenticate');
+        
+    });

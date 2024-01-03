@@ -63,14 +63,10 @@
         @apply tracking-tight;
 
 
-        span{
-
-            a{
-                @apply hover-rise;
-                @apply hover-inflate;
-                @apply bg-red-500;
-
-            }
+        a{
+            
+            @apply hover-rise;
+            @apply hover-inflate;
 
         }
 
@@ -123,7 +119,7 @@
 
         span{
 
-            
+
             &::after{
 
                 @apply ml-1;

@@ -7,6 +7,8 @@
 @import './base/_animations.css';
 
 @import './layout/_blocks.css';
+@import './layout/_cards.css';
+@import './layout/_elements.css';
 @import './layout/_navigation.css';
 @import './layout/_footer.css';
 

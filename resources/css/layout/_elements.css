@@ -1,0 +1,449 @@
+/*************************/
+/* FORM ELEMENTS */
+/*************************/
+
+
+label{
+
+    @apply text-sm;
+    @apply text-gray-400;
+    @apply font-normal;
+    @apply uppercase;    
+
+}
+
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea,
+select{
+
+    @apply px-4;
+    @apply py-2;
+
+    @apply bg-white;
+    @apply border;
+    @apply border-slate-300;
+
+    @apply rounded-sm;
+
+    @apply text-lg;
+
+    @apply placeholder:text-gray-300;
+    @apply focus:outline-none;
+    @apply focus:border-slate-600;
+
+}
+
+
+input::placeholder,
+textarea::placeholder,
+select:not(:valid){
+
+    @apply text-slate-300;
+
+}
+
+
+
+
+/*************************/
+/* BUTTONS */
+/*************************/
+
+
+.btn{
+
+    @apply px-4;
+    @apply py-1;
+
+    @apply w-fit;
+
+    @apply bg-black;
+    
+    @apply rounded-sm;
+    @apply shadow;
+
+    @apply text-white;
+    @apply font-bold;
+    @apply no-underline;
+    
+    @apply hover-dip;
+
+    @apply hover:text-white;
+
+
+    i{
+        @apply mr-2;
+        @apply text-sm;
+    }
+
+}
+
+.btn-primary{
+    @apply btn;
+    @apply bg-primary-600;
+}
+
+.btn-secondary{
+    @apply btn;
+    @apply bg-secondary-600;
+}
+
+.btn-success{
+    @apply btn;
+    @apply bg-success-600;
+}
+
+.btn-danger{
+    @apply btn;
+    @apply bg-danger-600;
+}
+
+.btn-warning{
+    @apply btn;
+    @apply bg-warning-600;
+}
+
+.btn-info{
+    @apply btn;
+    @apply bg-info-600;
+}
+
+.btn-action{
+    @apply btn;
+    @apply bg-action-600;
+}
+
+
+
+
+/*************************/
+/* ALERTS */
+/*************************/
+
+
+.alert{
+
+    @apply mx-auto;
+    @apply mb-12;
+    @apply px-8;
+    @apply py-2;
+
+    @apply w-fit;
+
+    @apply bg-gray-50;
+    @apply border;
+    @apply border-slate-300;
+    @apply border-l-8;
+    @apply border-l-gray-700;
+
+    @apply shadow;
+
+    @apply text-gray-800;
+
+}
+
+
+.alert-primary{
+
+    @apply alert;
+
+    @apply bg-primary-50;
+    @apply border-l-primary-700;
+    @apply text-primary-800;
+
+}
+
+
+.alert-secondary{
+
+    @apply alert;
+
+    @apply bg-secondary-50;
+    @apply border-l-secondary-700;
+    @apply text-secondary-800;
+
+}
+
+
+.alert-success{
+
+    @apply alert;
+
+    @apply bg-success-50;
+    @apply border-l-success-700;
+    @apply text-success-800;
+
+}
+
+
+.alert-danger{
+
+    @apply alert;
+
+    @apply bg-danger-50;
+    @apply border-l-danger-700;
+    @apply text-danger-800;
+
+}
+
+
+.alert-warning{
+
+    @apply alert;
+
+    @apply bg-warning-50;
+    @apply border-l-warning-700;
+    @apply text-warning-800;
+
+}
+
+
+.alert-info{
+
+    @apply alert;
+
+    @apply bg-info-50;
+    @apply border-l-info-700;
+    @apply text-info-800;
+
+}
+
+
+.alert-action{
+
+    @apply alert;
+
+    @apply bg-action-50;
+    @apply border-l-action-700;
+    @apply text-action-800;
+
+}
+
+
+
+
+/*************************/
+/* PAGINATION BUTTONS */
+/*************************/
+
+
+.pagination-btn{
+
+    @apply px-3;
+    @apply py-1;
+
+    @apply flex;
+    @apply items-center;
+
+    @apply bg-white;
+    @apply border;
+    @apply border-slate-300;
+    
+    @apply text-base;
+    @apply text-gray-500;
+    @apply font-medium;
+    @apply no-underline;
+    
+    @apply cursor-pointer;
+
+    
+    .start{
+
+        @apply rounded-l-lg;
+
+    }
+
+
+    .end{
+
+        @apply rounded-r-lg;
+
+    }
+
+
+    .inactive{
+
+        @apply text-gray-400;
+        @apply cursor-default;
+
+    }
+
+
+    .current{
+
+        @apply bg-white;
+        @apply text-sky-600;
+
+        @apply cursor-default;
+
+    }
+
+    
+}
+
+
+
+
+/*************************/
+/* CATEGORY PIP */
+/*************************/
+
+
+a.category-pip{
+
+    @apply inline-block;
+    @apply px-2;
+    @apply py-1;
+
+    @apply rounded;
+    @apply shadow-sm;
+
+    @apply text-xs;
+    @apply text-white;
+    @apply font-bold;
+    @apply uppercase;
+    @apply no-underline;
+
+    @apply hover-dip;
+
+}
+
+a.category-pip-sm{
+
+    @apply inline-block;
+    @apply px-1;
+    @apply py-0;
+
+    @apply rounded;
+    @apply shadow-sm;
+
+    @apply text-[0.6rem];
+    @apply text-white;
+    @apply font-medium;
+    @apply uppercase;
+    @apply no-underline;
+
+    @apply hover-dip;
+
+}
+
+
+
+
+/*************************/
+/* RESOURCE PUBLISHING INFORMATION */
+/*************************/
+
+
+ul.resource-publishing-information{
+   
+    @apply flex;
+    @apply flex-row;
+    @apply gap-2;
+    @apply justify-center;
+    @apply items-center;
+    
+    @apply text-xs;
+    
+}
+
+
+
+
+/*************************/
+/* RESOURCE PUBLISHING INFORMATION */
+/*************************/
+
+
+.resource-image-lg{
+
+    @apply mb-4;
+    
+
+    >.image-frame{
+
+        @apply mb-6;
+        @apply p-1;
+
+        @apply bg-gradient-to-tl;
+        @apply from-cyan-100;
+        @apply to-lime-100;
+        @apply border;
+        @apply border-slate-300;
+        @apply rounded;
+
+
+        >img{
+            @apply w-full;
+        }
+
+    }
+    
+}
+
+
+
+
+/*************************/
+/* FORM ELEMENTS */
+/*************************/
+
+
+#formInputImage{
+    @apply w-full;
+    @apply text-center;
+}
+
+
+#formInputImage>#selectedImageFrame{
+    @apply w-full;
+    @apply h-fit;
+    @apply p-4;
+    @apply mx-auto;
+    @apply my-3;
+    @apply bg-white;
+    @apply border;
+    @apply border-slate-300;
+    @apply text-lg;
+    @apply font-bold;
+}
+
+
+#formInputImage>#selectedImageFrame>img{
+    @apply w-1/3;
+    @apply mx-auto;
+    @apply shadow;
+}
+
+
+#formInputImage>#uploadButton{
+    /* @apply btn-action; */
+    @apply mx-auto;
+    @apply px-16;
+}
+
+#formInputImage>#imageInput{
+    @apply opacity-0;
+    @apply w-0;
+    @apply h-0;
+}
+
+
+
+
+/*************************/
+/* CRUD BUTTONS */
+/*************************/
+
+
+.crud-buttons-row{
+
+    @apply flex;
+    @apply gap-3;
+    @apply justify-end;
+    
+}
+

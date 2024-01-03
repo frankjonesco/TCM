@@ -1,0 +1,555 @@
+/*************************/
+/* CARDS */
+/*************************/
+
+
+.card{
+
+    @apply mx-auto;
+    @apply px-8;
+    @apply py-10;
+
+    @apply bg-slate-50;
+    @apply border;
+    @apply border-gray-300;
+
+    @apply rounded-md;
+    @apply shadow;
+
+
+    /* FORM CARD */
+
+    &.form{
+
+
+        form{
+
+            @apply grid;
+            @apply grid-cols-2;
+            @apply gap-8;
+            @apply justify-center;
+            @apply items-center;
+            
+
+            span.section-heading{
+
+                @apply block;
+                @apply mt-4;
+                @apply mb-4;
+                @apply pb-3;
+
+                @apply border-b;
+                @apply border-b-gray-200;
+                
+                @apply text-lg;
+                @apply font-bold;
+                @apply text-gray-600;
+
+            }
+
+
+            .field, .buttons{
+
+                @apply col-span-2;
+
+                @apply flex;
+                @apply flex-col;
+                @apply gap-3;
+                
+            }
+
+            .hidden-field{
+
+                @apply hidden;
+                
+            }
+
+
+            .buttons{
+
+                @apply flex-row;
+                @apply justify-center;
+
+            }
+
+        }
+
+    }
+
+
+    &.form-sm{
+
+        @apply w-full;
+
+        @apply md:w-3/4;
+        @apply lg:w-2/3;
+        @apply xl:w-2/5;
+
+    }
+
+
+    &.form-md{
+
+        @apply w-full;
+        
+        @apply lg:w-3/4;
+        @apply xl:w-1/2;
+
+    }
+
+
+    &.form-lg{
+
+        @apply w-full;
+        
+        @apply xl:w-3/4;
+
+    }
+
+
+}
+
+
+
+
+/*************************/
+/* PAGE HEADINGS */
+/*************************/
+
+
+.page-headings{
+
+    @apply mb-12;
+    
+    @apply border-b;
+    @apply border-slate-300;
+    
+}
+
+
+
+
+/*************************/
+/* CATEGORY LIST ITEM CARD */
+/*************************/
+
+
+.category-list-item{
+    
+    @apply py-4;
+    @apply pb-6;
+
+
+    @apply border-b;
+
+
+    >div{
+        
+        @apply w-full;
+        
+        @apply flex;
+        @apply justify-between;
+        @apply items-start;
+
+        @apply text-3xl;
+        @apply font-bold;
+
+        @apply tracking-tight;
+        @apply leading-7;
+
+
+        >span{
+
+        
+            >a{
+
+                @apply block;
+                @apply no-underline;
+                @apply animate-300;
+                @apply hover:translate-y-1;
+                @apply hover:text-red-400;
+
+            }
+
+
+            >div{
+
+                @apply font-thin;
+                @apply text-xl;
+                @apply mt-3;
+
+            }
+
+        }
+
+
+    }
+
+
+}
+
+
+
+
+/*************************/
+/* CONTENT LIST ITEM */
+/*************************/
+
+
+.content-list-item{
+    @apply p-2;
+    @apply flex;
+    @apply items-center;
+    @apply shadow;
+
+
+    >.image{
+
+        @apply w-2/5;
+
+
+        >img{
+
+            @apply w-full;
+
+        }
+
+    }
+
+
+    .text{
+
+        @apply px-10;
+        @apply py-8;
+
+        @apply w-3/5;
+
+        @apply -translate-y-1.5;
+
+        @apply flex;
+        @apply flex-col;
+        @apply gap-4;        
+        @apply justify-center;
+        @apply items-center;
+        @apply text-center;
+
+
+        a.title{
+
+            @apply text-xl;
+            @apply font-bold;
+            @apply font-roboto-slab;
+
+        }
+
+    }
+
+}
+
+
+
+
+.content-list-item-vertical{
+
+    @apply flex-col;
+    
+
+    >.image{
+        @apply w-full;
+    }
+
+
+    .text{
+
+        @apply px-4;
+        @apply pt-8;
+    
+        @apply w-full;
+
+    }
+
+}
+
+
+
+
+/*************************/
+/* ADMIN CONTENT */
+/*************************/
+
+
+section.admin-content{
+
+    @apply mb-12;
+
+    .heading{
+
+        @apply mb-6;
+
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+
+        @apply border-b;
+        @apply border-slate-300;
+
+
+        span{
+
+            @apply heading-1;
+            @apply text-4xl;
+
+        }
+
+
+        div{
+            @apply h-fit;
+            @apply flex;
+        }
+
+
+    }
+
+
+    table.content-table{
+
+        @apply w-full;
+
+        @apply border;
+        @apply border-slate-300;
+
+
+        thead{
+
+            
+            @apply bg-slate-500;
+            @apply text-white;
+            @apply text-lg;
+
+            th{
+                @apply p-2;
+            }
+        }
+
+
+        tr{
+
+            @apply border-t;
+            @apply border-t-slate-200;
+
+
+            &.alternate-row{
+
+                @apply bg-yellow-50;
+
+            }
+
+
+            td{
+
+                @apply p-2.5;
+
+                @apply text-sm;
+                @apply text-center;
+                @apply font-light;
+
+
+                .image-and-title{
+                    @apply flex;
+                    @apply justify-start;
+                    @apply items-center;
+                    @apply gap-2;
+                    @apply h-full;
+
+                    >img{
+                        @apply w-10;
+                        @apply rounded-sm;
+                    }
+                }
+                
+            }
+
+        }
+        
+
+    }
+
+
+}
+
+
+
+
+/*************************/
+/* DELETE CONTENT COARD */
+/*************************/
+
+
+.delete-content-card{
+
+    @apply p-4;
+    @apply w-full;
+    
+    @apply bg-white;
+    @apply border;
+    @apply border-gray-300;
+    @apply rounded;
+
+
+    div{
+
+        @apply flex;
+        @apply flex-col;
+        @apply gap-3;
+        @apply items-center;
+
+
+        img{
+
+            @apply w-full;
+
+        }
+
+        span{
+
+            @apply inline-block;
+
+            @apply text-2xl;
+            @apply font-semibold;
+        
+        }
+            
+    }
+
+}
+
+
+
+
+/*************************/
+/* DOCUMENT CARD */
+/*************************/
+
+
+.document-card{
+
+    @apply mx-auto;
+    @apply w-3/4;
+
+
+    .section{
+
+        @apply mb-10;
+        @apply px-6;
+        @apply py-10;
+
+        @apply bg-stone-50;
+        @apply border;
+        @apply border-slate-300;
+
+        @apply rounded;
+
+
+        .sub-heading{
+
+            @apply mb-10;
+            
+            @apply text-center;
+            @apply text-base;
+            @apply font-semibold;
+
+        }
+
+
+        .sub-section{
+
+            @apply mb-10;
+
+        }
+
+
+        h2{
+
+            @apply font-bold;
+
+        }
+
+
+        ul{
+
+            @apply ml-8;
+            @apply mt-4;
+            @apply mb-6;
+
+            @apply list-disc;
+
+
+            li{
+
+                @apply py-0.5;
+
+            }
+
+
+        }
+
+        .bold{
+
+            @apply font-medium;
+
+        }
+
+    }
+
+
+    .updated-footer{
+        @apply px-3;
+        @apply font-light;
+        @apply flex;
+        @apply justify-between;
+        @apply text-sm;
+
+    }
+
+
+}
+
+
+
+
+/*************************/
+/* TOAST */
+/*************************/
+
+
+.toast-box{
+
+    @apply fixed;
+    @apply p-8;
+    @apply left-1/2;
+    @apply -translate-x-1/2;
+    
+    @apply bg-yellow-400;
+    @apply border-2;
+    @apply border-gray-900;
+
+    @apply rounded-sm;
+    @apply shadow-md;
+
+    @apply z-50;
+
+    @apply animate-300;
+
+}
+
+
+.toast-text{
+
+    @apply mx-3;
+
+    @apply text-3xl;
+    @apply text-center;
+    @apply font-black;
+    @apply capitalize;
+
+}

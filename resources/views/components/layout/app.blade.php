@@ -41,11 +41,30 @@
 
 </head>
 <body>
+
     <x-layout.navigation />
+
+
     <main>
-        {{$slot}}
+
+        <x-blocks.container class="{{isset($containerClass) ? $containerClass : null}}">
+        
+            @if(empty($pageHeadings) === false)
+                <x-cards.page-headings :pageHeadings="$pageHeadings" />
+            @endif
+            
+            {{$slot}}
+
+        </x-blocks.container>
+
     </main>
+
+
     <x-layout.footer />
+
+
     <x-blocks.blackout />
+
+
 </body>
 </html>
