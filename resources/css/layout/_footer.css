@@ -1,0 +1,160 @@
+/*************************/
+/* SITE FOOTER */
+/*************************/
+
+
+#siteFooter{
+
+    @apply pt-20;
+    @apply pb-10;
+
+    @apply w-screen;
+
+    @apply flex;
+    @apply flex-col;
+    @apply gap-12;
+    @apply items-center;
+
+    @apply bg-black;
+
+    @apply text-xs;
+    @apply text-white;
+    @apply font-bold;
+    @apply uppercase;
+
+
+
+    /* FOOTER LINKS */
+
+    
+    a{
+        @apply no-underline;
+    }
+
+
+    
+    /* LOGO */
+
+
+    a.logo{
+
+        @apply font-logo;
+
+    }
+
+
+
+    /* UNORDERED LISTS */
+    
+
+    nav{
+
+        @apply px-6;
+        @apply py-4;
+
+        @apply flex;
+        @apply flex-col;
+        @apply md:flex-row;
+        @apply gap-12;
+
+        @apply border-y;
+        @apply border-slate-800;
+
+        @apply tracking-tight;
+
+
+        span{
+
+            a{
+                @apply hover-rise;
+                @apply hover-inflate;
+                @apply bg-red-500;
+
+            }
+
+        }
+
+    }
+
+
+
+    /* SOCIALS */
+
+
+    .social-networks{
+
+        @apply flex;
+        @apply items-center;
+        @apply gap-6;        
+        
+
+        span{
+
+            @apply block;
+            @apply pr-2;
+            @apply text-gray-400;
+        
+        }
+
+
+        a{
+
+            @apply text-lg;
+
+        }
+
+    }
+
+
+
+    /* LEGALS */
+
+
+    div.legals{
+
+        @apply flex;
+        @apply gap-0;
+
+        @apply text-xs;
+        @apply text-gray-400;
+        @apply font-light;
+        @apply normal-case;
+
+
+        span{
+
+            
+            &::after{
+
+                @apply ml-1;
+                @apply mr-2;
+
+                content: '\00b7';
+
+            }
+
+
+            &:last-child::after{
+
+                @apply mx-0;
+                content: '';
+
+            }
+
+
+            a{
+
+                @apply text-yellow-200;
+
+                @apply no-underline;
+                @apply underline-offset-2;
+
+                @apply hover:underline;
+
+            }
+
+        }
+
+    }
+
+}
