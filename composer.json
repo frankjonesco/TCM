@@ -8,6 +8,7 @@
         "php": "^8.1",
         "butschster/meta-tags": "^2.3",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
@@ -23,6 +24,11 @@
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
+
+        "files": [
+            "app/helpers.php"
+        ],
+        
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",

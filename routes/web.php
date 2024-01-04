@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CriminalCaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,67 @@ Route::controller(SiteController::class)->group(function(){
     Route::get('/terms-of-use', 'viewTermsOfUse');
 
 });
+
+
+
+
+// CATEGORY CONTROLLER 
+
+
+    // AUTHENTICATED USERS
+
+    Route::controller(CategoryController::class)->middleware('auth')->group(function(){
+
+        Route::get('/admin/categories', 'adminIndex');
+        Route::get('/categories/create', 'create');
+        Route::post('/categories/store', 'store');
+        Route::get('/categories/{category}/edit', 'edit');
+        Route::put('/categories/{category}/update', 'update');
+        Route::get('/categories/{category}/confirm-delete', 'confirmDelete');
+        Route::delete('/categories/{category}/destroy', 'destroy');
+    
+
+    });
+
+
+    // ALL USERS
+
+    Route::controller(CategoryController::class)->group(function(){
+
+        Route::get('/categories', 'index');
+        Route::get('/categories/{category}', 'show');
+
+    });
+
+
+
+
+// CRIMINAL CASE CONTROLLER
+
+
+    // AUTHENTICATED USERS
+    
+    Route::controller(CriminalCaseController::class)->middleware('auth')->group(function(){
+        
+        Route::get('/admin/criminal-cases', 'adminIndex');
+        Route::get('/criminal-cases/create', 'create');
+        Route::post('/criminal-cases/store', 'store');
+        Route::get('/criminal-cases/{criminal_case}/edit', 'edit');
+        Route::put('/criminal-cases/{criminal_case}/update', 'update');
+        Route::get('/criminal-cases/{criminal_case}/confirm-delete', 'confirmDelete');
+        Route::delete('/criminal-cases/{criminal_case}/destroy', 'destroy');
+
+    });
+
+
+    // ALL USERS
+
+    Route::controller(CriminalCaseController::class)->group(function(){
+        
+        Route::get('/criminal-cases', 'index');
+        Route::get('/criminal-cases/{criminal_case}', 'show');
+
+    });
 
 
 

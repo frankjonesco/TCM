@@ -9,8 +9,8 @@
 
     @meta_tags
 
-    {{-- <meta property="og:site_name" content="Colby Fayock" />
-    <meta property=“og:title” content="" />
+    <meta property="og:site_name" content="{{config('app.name')}}" />
+    {{-- <meta property=“og:title” content="" />
     <meta property="og:description" content="" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:type" content="article" />
@@ -37,7 +37,44 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5443411235770747"
      crossorigin="anonymous"></script>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+    <!-- GOOGLE ANALYTICS -->
+    
+    <script defer src="https://www.googletagmanager.com/gtag/js?id={{config('settings.google_analytics_tag')}}"></script>
+    <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{config('settings.google_analytics_tag')}}');
+    </script>
+
+
+
+
+    {{-- BUILD SCRIPTS --}}
+
+    @if(environmentIsProduction())
+
+        @foreach(explodeCssAssets() as $cssAsset)
+
+            <link href="{{ asset('build/assets/'.trim($cssAsset))}}"  rel="preload" as="style" onload="this.rel='stylesheet'">
+
+        @endforeach
+
+        @foreach(explodeJsAssets() as $jsAsset)
+
+            <script src="{{ asset('build/assets/'.trim($jsAsset)) }}" defer></script>
+
+        @endforeach
+
+
+    @else
+
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @endif
 
 
     {{-- COOKIE CONSENT --}}
@@ -48,6 +85,7 @@
 </head>
 <body>
 
+    
     <x-layout.navigation />
 
 
@@ -69,9 +107,14 @@
     <x-layout.footer />
 
 
+    <x-cards.toast />
+
+
     <x-blocks.blackout />
 
+
     @cookieconsentview
+
 
 </body>
 </html>

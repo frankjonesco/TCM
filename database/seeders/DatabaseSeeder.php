@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
             StateSeeder::class,
             CountySeeder::class,
             CitySeeder::class,
-            // CategorySeeder::class,
-            // CriminalCaseSeeder::class,
+            CategorySeeder::class,
+            CriminalCaseSeeder::class,
 
-            // ImageSeeder::class,
+            ImageSeeder::class,
         ]);
     }
 }

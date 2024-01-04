@@ -169,8 +169,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\MetaTagsServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        
         // IMPORTANT: add the following line AFTER "App\Providers\RouteServiceProvider::class,"
         App\Providers\CookiesServiceProvider::class,
+
+        Intervention\Image\ImageServiceProvider::class
     ])->toArray(),
 
     /*
@@ -186,6 +190,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];
