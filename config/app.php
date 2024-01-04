@@ -169,6 +169,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\MetaTagsServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // IMPORTANT: add the following line AFTER "App\Providers\RouteServiceProvider::class,"
+        App\Providers\CookiesServiceProvider::class,
     ])->toArray(),
 
     /*

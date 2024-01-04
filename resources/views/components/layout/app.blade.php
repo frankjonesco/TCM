@@ -39,6 +39,11 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+
+    {{-- COOKIE CONSENT --}}
+
+    @cookieconsentscripts
+
 </head>
 <body>
 
@@ -65,6 +70,7 @@
 
     <x-blocks.blackout />
 
+    @cookieconsentview
 
 </body>
 </html>
