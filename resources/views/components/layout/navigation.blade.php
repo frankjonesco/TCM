@@ -130,6 +130,66 @@
         </span>
 
 
+        {{-- CRIMINALS --}}
+
+        <span>
+
+            <a 
+                href="/criminals"
+                title="True crime criminals"
+                aria-label="True crime criminals"
+            >
+                Criminals
+            </a>
+
+        </span>
+
+
+        {{-- JUDGES --}}
+
+        <span>
+
+            <a 
+                href="/judges"
+                title="True crime judges"
+                aria-label="True crime judges"
+            >
+                Judges
+            </a>
+
+        </span>
+
+
+        {{-- NEWS ARTICLES --}}
+
+        <span>
+
+            <a 
+                href="/articles"
+                title="True crime news articles"
+                aria-label="True crime news articles"
+            >
+                News articles
+            </a>
+
+        </span>
+
+
+        {{-- CONTACT US --}}
+
+        <span>
+
+            <a 
+                href="/contact-us"
+                title="Contact us"
+                aria-label="Contact us"
+            >
+                Contact us
+            </a>
+
+        </span>
+
+
         {{-- AUTH MENU ITEMS --}}
 
         @auth

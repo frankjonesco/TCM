@@ -60,7 +60,8 @@ class CategoryController extends Controller
             'pageHeadings' => [
                 $category->name,
                 $category->description
-            ]
+            ],
+            'criminal_cases' => $category->criminal_cases()->paginate()
         ]);
 
     }
