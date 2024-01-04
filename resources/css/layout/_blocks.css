@@ -66,12 +66,15 @@ main{
 
 
 
-
-
+/*************************/
 /* RESOURCE LAYOUT */
+/*************************/
+
 
 .resource-layout{
+
     @apply container;
+
 }
 
 

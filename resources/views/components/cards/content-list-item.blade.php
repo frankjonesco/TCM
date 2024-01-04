@@ -32,21 +32,27 @@
 
         {{-- CATEGORY PIP --}}
 
-        {{-- if resource hasPip
-            unless hidePip is TRUE  
-                showPip --}}
+        @php
+            $category = $resource->category;
+
+            if($resource->modelData('name') === 'Criminal'){
+                $category = $resource->criminal_case->category;
+            }
+        @endphp
 
         @unless(isset($hidePip) && $hidePip === true)
             @if(isset($listSize) && $listSize === 'sm')
 
-                <x-elements.category-pip :category="$resource->category" class="category-pip-sm" />
+                <x-elements.category-pip :category="$category" class="category-pip-sm" />
 
             @else
 
-                <x-elements.category-pip :category="$resource->category" />
+                <x-elements.category-pip :category="$category" />
 
             @endif
         @endunless
+
+        
 
         
         {{-- TITLE --}}
