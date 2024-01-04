@@ -6,12 +6,12 @@
     <div class="content-grid">
         
 
-        @foreach($criminal_cases as $criminal_case)
+        @foreach($criminals as $criminal)
 
 
             {{-- CONTENT LIST ITEM --}}
 
-            <x-cards.content-list-item :resource="$criminal_case" class="content-list-item-vertical" />
+            <x-cards.content-list-item :resource="$criminal" class="content-list-item-vertical" />
 
 
         @endforeach
@@ -22,7 +22,7 @@
 
     {{-- PAGINATION --}}
 
-    {{ $criminal_cases->links() }}
+    {{ $criminals->links() }}
     
 
 </x-layout.app>

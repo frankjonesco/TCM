@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CriminalController;
 use App\Http\Controllers\CriminalCaseController;
 
 /*
@@ -110,6 +111,36 @@ Route::controller(SiteController::class)->group(function(){
         
         Route::get('/criminal-cases', 'index');
         Route::get('/criminal-cases/{criminal_case}', 'show');
+
+    });
+
+
+
+
+// CRIMINAL CONTROLLER
+
+
+    // AUTHENTICATED USERS
+        
+    Route::controller(CriminalController::class)->middleware('auth')->group(function(){
+            
+        Route::get('/admin/criminals', 'adminIndex');
+        Route::get('/criminals/create', 'create');
+        Route::post('/criminals/store', 'store');
+        Route::get('/criminals/{criminal}/edit', 'edit');
+        Route::put('/criminals/{criminal}/update', 'update');
+        Route::get('/criminals/{criminal}/confirm-delete', 'confirmDelete');
+        Route::delete('/criminals/{criminal}/destroy', 'destroy');
+
+    });
+
+
+    // ALL USERS
+
+    Route::controller(CriminalController::class)->group(function(){
+            
+        Route::get('/criminals', 'index');
+        Route::get('/criminals/{criminal}', 'show');
 
     });
 

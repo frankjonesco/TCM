@@ -264,6 +264,17 @@ private function getResources(
         return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
 
     }
+
+
+
+    // RESOURCE: CRIMINALS
+
+    public function criminals(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = null, string $sort = null){
+
+        $model = new Criminal();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    }
     
     
 

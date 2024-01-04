@@ -85,6 +85,23 @@ if(!function_exists('showDateTime')){
 
 
 
+// CONVERT NEW LINE TO PARAGRAPH
+
+if(!function_exists('nl2p')){
+    function nl2p($string){
+        $paragraphs = '';
+        foreach (explode("\n", $string) as $line) {
+            if (trim($line)) {
+                $paragraphs .= '<p>' . $line . '</p>';
+            }
+        }
+        return $paragraphs;
+    }
+}
+
+
+
+
 // FORMAT VIEWS
 
 if(!function_exists('formatViews')){

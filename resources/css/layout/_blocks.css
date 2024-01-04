@@ -67,6 +67,17 @@ main{
 
 
 
+
+/* RESOURCE LAYOUT */
+
+.resource-layout{
+    @apply container;
+}
+
+
+
+
+
 /*************************/
 /* SINGLE SPECIFIC BLOCKS */
 /*************************/

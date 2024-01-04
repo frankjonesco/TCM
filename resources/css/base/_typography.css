@@ -103,9 +103,12 @@ h3, .heading-3{
 
 
 p{
+    @apply mb-5;
 
-    @apply mb-4;
-
+    @apply text-lg;
+    @apply leading-relaxed;
+    @apply tracking-wide;
+    
 }
 
 
