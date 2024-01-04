@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JudgeController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CriminalController;
 use App\Http\Controllers\CriminalCaseController;
@@ -148,13 +149,13 @@ Route::controller(SiteController::class)->group(function(){
 
 
 
-// CRIMINAL CONTROLLER
+// JUDGE CONTROLLER
 
 
     // AUTHENTICATED USERS
-            
-    Route::controller(JudgeController::class)->middleware('auth')->group(function(){
                 
+    Route::controller(JudgeController::class)->middleware('auth')->group(function(){
+                    
         Route::get('/admin/judges', 'adminIndex');
         Route::get('/judges/create', 'create');
         Route::post('/judges/store', 'store');
@@ -169,9 +170,39 @@ Route::controller(SiteController::class)->group(function(){
     // ALL USERS
 
     Route::controller(JudgeController::class)->group(function(){
-                
+                    
         Route::get('/judges', 'index');
         Route::get('/judges/{judge}', 'show');
+
+    });
+
+
+
+
+// ARTICLE CONTROLLER
+
+
+    // AUTHENTICATED USERS
+                
+    Route::controller(ArticleController::class)->middleware('auth')->group(function(){
+                    
+        Route::get('/admin/articles', 'adminIndex');
+        Route::get('/articles/create', 'create');
+        Route::post('/articles/store', 'store');
+        Route::get('/articles/{article}/edit', 'edit');
+        Route::put('/articles/{article}/update', 'update');
+        Route::get('/articles/{article}/confirm-delete', 'confirmDelete');
+        Route::delete('/articles/{article}/destroy', 'destroy');
+
+    });
+
+
+    // ALL USERS
+
+    Route::controller(ArticleController::class)->group(function(){
+                    
+        Route::get('/articles', 'index');
+        Route::get('/articles/{article}', 'show');
 
     });
 

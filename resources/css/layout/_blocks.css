@@ -75,6 +75,10 @@ main{
 
     @apply container;
 
+    h3{
+        @apply text-left;
+    }
+
 }
 
 

@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             CriminalSeeder::class,
             JudgeSeeder::class,
 
+            ArticleSeeder::class,
+
             ImageSeeder::class,
         ]);
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Site;
 use App\Models\Judge;
+use App\Models\Article;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use App\Models\CriminalCase;
@@ -13,7 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 
-class JudgeController extends Controller
+class ArticleController extends Controller
 {
 
     protected $site, $model, $directory, $label, $plural, $pageHeadings, $viewAssets, $toast;
@@ -23,7 +24,7 @@ class JudgeController extends Controller
     {
         $this->middleware('auth')->except(['index', 'show']);
         $this->site = new Site();
-        $this->model = $this->site->formatModelData('Judge', 'lg');
+        $this->model = $this->site->formatModelData('Article', 'lg');
         $this->pageHeadings = $this->site->getPageHeadings($this->model);
         $this->toast = "Good!";
         $this->viewAssets = (object) array(
@@ -38,12 +39,12 @@ class JudgeController extends Controller
 
     public function index() : View
     {
-        $this->site->injectMetadata(ucfirst($this->model->plural), true, 'The most memorable judges that have presided over the most popular televised True Crime court cases.');
+        $this->site->injectMetadata(ucfirst($this->model->plural), true, 'Browse our list of True Crime news articles about the criminals, victims, judges, attorneys and witnesses from the most popular True Crime cases and stories.');
 
         
         return view($this->model->directory.'.index', [
             'pageHeadings' => $this->pageHeadings,
-            'judges' => $this->site->judges(true, 12, 'public')
+            'articles' => $this->site->articles(true, 12, 'public')
         ]);
 
     }
@@ -53,14 +54,14 @@ class JudgeController extends Controller
 
     // SHOW SINGLE RESOURCE
 
-    public function show(Judge $judge) : View
+    public function show(Article $article) : View
     {
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
-                $judge->fullName(),
-                $judge->description ?: 'About this judge.',
+                $article->title,
+                $article->subtitle ?: 'Something about the article',
             ],
-            'judge' => $judge
+            'article' => $article
         ]);
 
     }

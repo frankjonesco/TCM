@@ -291,12 +291,12 @@ private function getResources(
 
     // RESOURCE: NEWS ARTICLES
 
-    // public function articles(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = null, string $sort = null){
+    public function articles(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = null, string $sort = null){
 
-    //     $model = new Article();
-    //     return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+        $model = new Article();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
 
-    // }
+    }
     
     
 
