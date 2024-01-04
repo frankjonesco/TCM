@@ -42,7 +42,7 @@ use App\Http\Controllers\UserController;
 Route::controller(SiteController::class)->group(function(){
 
     Route::get('/', 'viewHome');
-    Route::get('/about', 'viewAbout');
+    Route::get('/about-us', 'viewAbout');
     Route::get('/contact-us', 'viewContactUs');
     Route::get('/opportunities', 'viewOpportunities');
     Route::get('/privacy-policy', 'viewPrivacyPolicy');

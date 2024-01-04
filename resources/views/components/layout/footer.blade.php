@@ -25,7 +25,7 @@
         {{-- ABOUT --}}
 
         <a 
-            href="/about"
+            href="/about-us"
             title="About {{config('app.name')}}"
             aria-label="About {{config('app.name')}}"
         >

@@ -42,9 +42,9 @@ class SiteController extends Controller
 
         Meta::prependTitle('About us');
 
-        return view('pages.about', [
+        return view('pages.about-us', [
             'pageHeadings' => [
-                'About',
+                'About us',
                 'What we do at '.config('app.name').'.'
             ]
         ]);
