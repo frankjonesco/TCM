@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             CriminalCaseSeeder::class,
             CriminalSeeder::class,
+            JudgeSeeder::class,
 
             ImageSeeder::class,
         ]);

@@ -275,6 +275,28 @@ private function getResources(
         return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
 
     }
+
+
+
+    // RESOURCE: JUDGES
+
+    public function judges(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = null, string $sort = null){
+
+        $model = new Judge();
+        return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    }
+
+
+
+    // RESOURCE: NEWS ARTICLES
+
+    // public function articles(bool $paginate = false, int $limit = null, string $status = null, $random = false, string $order = null, string $sort = null){
+
+    //     $model = new Article();
+    //     return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
+
+    // }
     
     
 
