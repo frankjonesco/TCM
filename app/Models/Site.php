@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Site extends Model
 {
     use HasFactory;
+
+
+    // FORCE TABLE NAME
+
+    protected $table = 'config';
+    
+    
+
+
+// END OF CLASS
+
 }

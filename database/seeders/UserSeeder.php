@@ -4,9 +4,12 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
+
+    // RUN SEEDER
 
     public function run(): void
     {
@@ -33,5 +36,7 @@ class UserSeeder extends Seeder
             ]);
 
         }
+
     }
+
 }
