@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Butschster\Head\Facades\Meta;
 
 
@@ -88,7 +89,11 @@ if(!function_exists('showDateTime')){
 // CONVERT NEW LINE TO PARAGRAPH
 
 if(!function_exists('nl2p')){
-    function nl2p($string){
+    function nl2p($string = ''){
+
+        if(empty($string))
+            return false;
+        
         $paragraphs = '';
         foreach (explode("\n", $string) as $line) {
             if (trim($line)) {
@@ -98,6 +103,29 @@ if(!function_exists('nl2p')){
         return $paragraphs;
     }
 }
+
+
+
+
+if(!function_exists('truncate')){
+    function truncate(string $text = null, int $character_limit = 50){
+        $text = strip_tags($text);
+        $text = Str::limit($text, $character_limit, $end='...');
+        return $text;
+    }
+}
+
+
+    
+
+if(!function_exists('addView')){
+    function addView($resource){
+        $resource->views += 1;
+        $resource->save();
+        return true;
+    }
+}
+
 
 
 

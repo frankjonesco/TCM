@@ -93,7 +93,7 @@
         {{-- FACEBOOK ICON --}}
 
         <a 
-            href="https://www.facebook.com/truecrimemetrix/"
+            href="{{config('settings.facebook_url')}}"
             target="_blank"
             title="Follow {{config('app.name')}} on Facebook"
             aria-label="Follow {{config('app.name')}} on Facebook"
@@ -105,7 +105,7 @@
         {{-- TWITTER ICON --}}
 
         <a 
-            href="https://twitter.com/truecrimemetrix/"
+            href="{{config('settings.twitter_url')}}"
             target="_blank"
             title="Follow {{config('app.name')}} on Twitter"
             aria-label="Follow {{config('app.name')}} on Twitter"
@@ -117,7 +117,7 @@
         {{-- YOUTUBE ICON --}}
 
         <a 
-            href="https://www.youtube.com/@TrueCrimeMetrix-rp6ze/"
+            href="{{config('settings.youtube_url')}}"
             target="_blank"
             title="Find {{config('app.name')}} on YouTube"
             aria-label="Find {{config('app.name')}} on YouTube"
@@ -129,7 +129,7 @@
         {{-- INSTAGRAM ICON --}}
 
         <a 
-            href="https://www.instagram.com/truecrimemetrix_official/"
+            href="{{config('settings.instagram_url')}}"
             target="_blank"
             title="Follow {{config('app.name')}} on Instagram"
             aria-label="Follow {{config('app.name')}} on Instagram"

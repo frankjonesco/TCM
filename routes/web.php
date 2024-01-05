@@ -47,7 +47,7 @@ use App\Http\Controllers\CriminalCaseController;
 Route::controller(SiteController::class)->group(function(){
 
     Route::get('/', 'viewHome');
-    Route::get('/about-us', 'viewAbout');
+    Route::get('/about-us', 'viewAboutUs');
     Route::get('/contact-us', 'viewContactUs');
     Route::get('/opportunities', 'viewOpportunities');
     Route::get('/privacy-policy', 'viewPrivacyPolicy');

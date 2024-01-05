@@ -55,10 +55,12 @@ class JudgeController extends Controller
 
     public function show(Judge $judge) : View
     {
+        $this->site->injectMetadata('Judge '.$judge->fullName().' - Profile on True Crime Metrix', false, truncate($judge->bio, 300));
+
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 $judge->fullName(),
-                $judge->description ?: 'About this judge.',
+                $judge->bio ?: 'About this judge.',
             ],
             'judge' => $judge
         ]);

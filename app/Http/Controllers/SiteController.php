@@ -38,9 +38,9 @@ class SiteController extends Controller
 
     // VIEW ABOUT
 
-    public function viewAbout(){
+    public function viewAboutUs(){
 
-        Meta::prependTitle('About us');
+        $this->site->injectMetadata('About us', true);
 
         return view('pages.about-us', [
             'pageHeadings' => [
@@ -58,7 +58,7 @@ class SiteController extends Controller
 
     public function viewContactUs(){
 
-        Meta::prependTitle('Contact us');
+        $this->site->injectMetadata('Contact us', true);
 
         return view('pages.contact-us', [
             'pageHeadings' => [
@@ -76,7 +76,7 @@ class SiteController extends Controller
 
     public function viewOpportunities(){
 
-        Meta::prependTitle('Opportunities');
+        $this->site->injectMetadata('Opportunities', true);
 
         return view('pages.opportunities', [
             'pageHeadings' => [
@@ -94,7 +94,7 @@ class SiteController extends Controller
 
     public function viewPrivacyPolicy(){
 
-        Meta::prependTitle('Privacy policy');
+        $this->site->injectMetadata('Privacy policy', true, null, true);
 
         return view('pages.privacy-policy', [
             'pageHeadings' => [
@@ -142,7 +142,7 @@ class SiteController extends Controller
 
     public function viewTermsOfUse(){
 
-        Meta::prependTitle('Terms of use');
+        $this->site->injectMetadata('Terms of use', true, null, true);
 
         return view('pages.terms-of-use', [
             'pageHeadings' => [

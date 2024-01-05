@@ -55,6 +55,8 @@ class CriminalController extends Controller
 
     public function show(Criminal $criminal) : View
     {
+        $this->site->injectMetadata($criminal->fullName().' - Criminal profile on True Crime Metrix', false, truncate($criminal->description, 300));
+
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 $criminal->fullName(),

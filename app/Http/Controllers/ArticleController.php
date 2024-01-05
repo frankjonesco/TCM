@@ -39,7 +39,7 @@ class ArticleController extends Controller
 
     public function index() : View
     {
-        $this->site->injectMetadata(ucfirst($this->model->plural), true, 'Browse our list of True Crime news articles about the criminals, victims, judges, attorneys and witnesses from the most popular True Crime cases and stories.');
+        $this->site->injectMetadata('True Crime Metrix - News articles', true, 'The latest in True Crime news about the criminals, victims, judges, attorneys and witnesses from the most popular True Crime cases and stories.');
 
         
         return view($this->model->directory.'.index', [
@@ -56,6 +56,8 @@ class ArticleController extends Controller
 
     public function show(Article $article) : View
     {
+        $this->site->injectMetadata($article->title, true, truncate($article->subtitle, 300));
+
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 $article->title,

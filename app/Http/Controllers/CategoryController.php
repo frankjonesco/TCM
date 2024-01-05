@@ -37,7 +37,7 @@ class CategoryController extends Controller
 
     public function index() : View 
     {
-        $this->site->injectMetadata('Crime '.$this->model->plural, true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
+        $this->site->injectMetadata('True crime '.$this->model->plural, true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
 
         return view($this->model->directory.'.index', [
             'pageHeadings' => $this->pageHeadings,
@@ -54,7 +54,7 @@ class CategoryController extends Controller
 
     public function show(Category $category) : View
     {
-        $this->site->injectMetadata('Crime: '.$category->name, true, $category->description);
+        $this->site->injectMetadata('Crime category: '.$category->name, true, $category->description);
 
         return view('categories.show', [
             'pageHeadings' => [
