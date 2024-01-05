@@ -16,13 +16,32 @@
     <meta property="og:type" content="article" />
     <meta property="article:publisher" content="https://truecrimemetrix.com" />
     <meta property="article:section" content="Coding" />
-    <meta property="article:tag" content="Coding" />
-    <meta property="og:image" content="" />
-    <meta property="og:image:width" content="1280" />
+    <meta property="article:tag" content="Coding" /> --}}
+    <meta id="ogImage" property="og:image" content="" />
+    {{-- <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="640" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:image" content="" />
-    <meta property="twitter:site" content="@truecrimemetrix" /> --}}
+    <meta property="twitter:site" content="@truecrimemetrix" />
+
+    <script>
+
+        function getMetaData(attr,val){
+            return document.querySelector(`[${attr}=${val}]`).content;
+        }
+
+        
+
+        window.addEventListener('load', function(){
+
+            var metaTitle = document.getElementsByTagName('title')[0].innerHTML;
+            var metaDescription = console.log(getMetaData('name','description'));
+
+       
+            document.head.querySelector('meta[property="og:title"]').setAttribute("content", "Example with og title meta tag");
+
+        });
+    </script> --}}
 
 
     {{-- GOOGLE FONTS --}}
