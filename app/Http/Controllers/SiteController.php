@@ -29,7 +29,11 @@ class SiteController extends Controller
             'pageHeadings' => [
                 'A true crime corner of the internet',
                 'News and statistics on high profile true crime cases.'
-            ]
+            ],
+            'criminal_cases' => $this->site->criminalCases(false, 4, 'public', true),
+            'criminals' => $this->site->criminals(false, 10),
+            'articles' => $this->site->articles(false, 10),
+            'state_counts' => $this->site->getStateCounts(false, 10),
         ]);
 
     }

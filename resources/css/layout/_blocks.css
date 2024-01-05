@@ -64,9 +64,13 @@ main{
 /* CONTENT GRID */
 
 .content-grid{
+
+    @apply mb-6;
+    
     @apply grid;
     @apply grid-cols-4;
-    @apply gap-3;
+    @apply gap-5;
+
 }
 
 
@@ -102,7 +106,26 @@ main{
     @apply flex;
     @apply flex-col;
     @apply items-center;
-    @apply gap-10;
+}
+
+
+
+
+/*************************/
+/* COLOR BLOCK */
+/*************************/
+
+
+.color-block{
+
+    @apply px-6;
+    @apply pb-6;
+    @apply bg-sky-100;
+    @apply border;
+    @apply border-slate-300;
+    @apply shadow-lg;
+    @apply rounded-lg;
+
 }
 
 

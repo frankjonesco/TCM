@@ -197,86 +197,142 @@
 
 
 .content-list-item{
-    @apply p-2;
+
     @apply w-full;
+    @apply h-full;
+
     @apply flex;
     @apply justify-center;
     @apply items-center;
-    @apply shadow;
 
+    @apply shadow-lg;
 
-    >.image{
+    div.image{
 
-        @apply w-full;
-        @apply mx-auto;
+        @apply p-2;
+        @apply w-2/5;
+
+        a{
+            @apply block;
+        }
+        
+
+    }
+
+    div.text{
+        @apply px-12;
+        @apply w-3/5;
+        @apply -translate-y-1.5;
+
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply gap-2;
         @apply text-center;
 
-
-        >a{
+        .category-pip{
             @apply inline-block;
-            @apply mx-auto;
-            img{
+            @apply w-fit;
+        }
 
-                @apply w-full;
+        a.title{
+            @apply heading-3;
+            @apply mb-0;
+        }
+    }
+
+
+    &.vertical-layout{
+
+
+        @apply flex-col;
+
+
+        @apply justify-start;    
+
+
+        div.image{
+
+        
+            @apply w-full;
+
+            @apply self-start;
+        
+
+        }
+
+        div.text{
+            @apply w-full;
+            @apply p-6;
+
+            a.title{
+                @apply text-lg;
+            }
+
+        }
+
+    }
+    
+
+}
+
+
+
+
+.sidebar{
+
+    div{
+
+        .content-list-item{
+
+            @apply mb-3;
+            @apply bg-white;
+            @apply border;
+            @apply border-slate-300;
+
+
+            div.text{
+
+                @apply px-2;
+                @apply gap-1;
+                @apply -translate-y-0;
+
+                a.category-pip{
+                    @apply inline-block;
+                    @apply px-1;
+                    @apply py-0;
+                    @apply -translate-y-1;
+
+                    @apply rounded;
+                    @apply shadow-sm;
+
+                    @apply text-[0.6rem];
+                    @apply text-white;
+                    @apply font-medium;
+                    @apply uppercase;
+                    @apply no-underline;
+
+                    @apply hover-dip;
+                }
+
+                a.title{
+                    @apply text-sm;
+                }
+
+                ul.resource-publishing-information{
+                    @apply gap-1;
+                }
+
             }
 
         }
 
     }
 
-
-    .text{
-
-        @apply px-10;
-        @apply py-8;
-
-        @apply w-3/5;
-
-        @apply -translate-y-1.5;
-
-        @apply flex;
-        @apply flex-col;
-        @apply gap-4;        
-        @apply justify-center;
-        @apply items-center;
-        @apply text-center;
-
-
-        a.title{
-
-            @apply text-xl;
-            @apply font-bold;
-            @apply font-roboto-slab;
-
-        }
-
-    }
-
 }
 
 
 
-
-.content-list-item-vertical{
-
-    @apply flex-col;
-    
-
-    >.image{
-        @apply w-full;
-    }
-
-
-    .text{
-
-        @apply px-4;
-        @apply pt-8;
-    
-        @apply w-full;
-
-    }
-
-}
 
 
 

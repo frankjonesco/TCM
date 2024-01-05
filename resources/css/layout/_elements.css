@@ -311,25 +311,6 @@ a.category-pip{
 
 }
 
-a.category-pip-sm{
-
-    @apply inline-block;
-    @apply px-1;
-    @apply py-0;
-
-    @apply rounded;
-    @apply shadow-sm;
-
-    @apply text-[0.6rem];
-    @apply text-white;
-    @apply font-medium;
-    @apply uppercase;
-    @apply no-underline;
-
-    @apply hover-dip;
-
-}
-
 
 
 

@@ -140,3 +140,38 @@ a{
     @apply tracking-tighter;
     
 }
+
+
+
+
+.block-heading{
+
+    @apply pt-6;
+    @apply pb-4;
+
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply text-3xl;
+    @apply font-thin;
+    @apply whitespace-nowrap;
+
+        
+    &::before, &::after{
+        @apply inline-block;
+        content: "";
+        @apply h-[1px];
+        @apply bg-slate-300;
+        @apply w-full;
+        
+    }
+
+    &::before{
+        @apply mr-5;
+    }
+
+    &::after{
+        @apply ml-5;
+    }
+
+}

@@ -1,12 +1,11 @@
 <x-layout.app :pageHeadings="$pageHeadings">
 
 
-    {{-- SET OG:IMAGE FOR SHARING THIS PAGE --}}
+    {{-- SET OG:META FOR SHARING THIS PAGE --}}
 
     <script>
         window.addEventListener('load', function(){
             document.querySelector('#ogType').setAttribute('content', 'article');
-            let metaImage = '{{$article->imagePath()}}';
             document.querySelector('#ogImage').setAttribute('content', '{{$article->imagePath()}}');
             document.querySelector('#ogImageWidth').setAttribute('content', 1280);
             document.querySelector('#ogImageHeight').setAttribute('content', 640);

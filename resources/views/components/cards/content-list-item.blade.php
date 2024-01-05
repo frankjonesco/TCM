@@ -37,6 +37,9 @@
             if($resource->modelData('name') === 'Criminal'){
                 $category = $resource->criminal_case->category;
             }
+            if($resource->modelData('name') === 'Article'){
+                $category = $resource->criminal_case->category;
+            }
         @endphp
 
         @unless(isset($hidePip) && $hidePip === true)
@@ -69,7 +72,7 @@
 
             {{-- RESOURCE PUBLISHING INFORMATION --}}
 
-            <x-elements.resource-publishing-information :resource="$resource" class="text-xl" />
+            <x-elements.resource-publishing-information :resource="$resource" />
 
         @endunless
 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Butschster\Head\Facades\Meta;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -298,8 +299,35 @@ private function getResources(
 
     }
 
+    // STATES WITH COUNT OF CRIME CASES
+
+    public function getStateCounts(){
+
+        $states = CriminalCase::select('state_id', DB::raw('count(*) as cases'))
+        ->groupBy('state_id')
+        ->orderBy('cases', 'DESC')
+        ->get();
+
+        $state_counts = [];
+
+        foreach($states as $state){
+            $state_counts[] = [
+                'state' => State::find($state['state_id']),
+                'cases' => $state['cases']
+            ];
+        }
+
+        return $state_counts;
+
+    }
 
 
+
+
+
+
+
+    // SEARCH RESULTS
 
     private function getSearchResources($model, string $search_term, $search_field = 'title', bool $paginate = false, int $limit = null, $random = null, string $order = null, string $sort = null){
 
