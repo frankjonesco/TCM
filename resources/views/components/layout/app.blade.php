@@ -9,22 +9,17 @@
 
     @meta_tags
 
-    <meta property="og:site_name" content="{{config('app.name')}}" />
-    {{-- <meta property=“og:title” content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="{{url()->current()}}" />
-    <meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2020-02-07T19:51:52+00:00" />
-    <meta property="article:modified_time" content="2022-12-04T22:15:04+00:00" />
-    <meta property="article:publisher" content="https://truecrimemetrix.com" />
-    <meta property="article:section" content="Coding" />
-    <meta property="article:tag" content="Coding" /> --}}
-    <meta id="ogImage" property="og:image" content="" />
-    {{-- <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="640" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image" content="" />
-    <meta property="twitter:site" content="@truecrimemetrix" />
+    <meta id="ogSiteName" property="og:site_name" content="{{config('app.name')}}" />
+    <meta id="ogTitle" property=“og:title” content="" />
+    <meta id="ogDescription" property="og:description" content="" />
+    <meta id="ogUrl" property="og:url" content="{{url()->current()}}" />
+    <meta id="ogType" property="og:type" content="website" />
+    <meta id="ogImage" property="og:image" content="{{asset('images/truecrimemetrix-logo.png')}}" />
+    <meta id="ogImageWidth" property="og:image:width" content="660" />
+    <meta id="ogImageHeight" property="og:image:height" content="661" />
+    <meta id="ogTwitterCard" property="twitter:card" content="summary_large_image" />
+    <meta id="ogTwitterImage" property="twitter:image" content="{{asset('images/truecrimemetrix-logo.png')}}" />
+    <meta id="ogTwitterSite" property="twitter:site" content="@truecrimemetrix" />
 
     <script>
 
@@ -32,18 +27,17 @@
             return document.querySelector(`[${attr}=${val}]`).content;
         }
 
-        
-
         window.addEventListener('load', function(){
 
-            var metaTitle = document.getElementsByTagName('title')[0].innerHTML;
-            var metaDescription = console.log(getMetaData('name','description'));
+            let metaTitle = document.title;
+            document.querySelector('#ogTitle').setAttribute('content', metaTitle);
 
-       
-            document.head.querySelector('meta[property="og:title"]').setAttribute("content", "Example with og title meta tag");
+            let metaDescription = getMetaData('name','description');
+            document.querySelector('#ogDescription').setAttribute('content', metaDescription);
 
         });
-    </script> --}}
+
+    </script>
 
 
     {{-- GOOGLE FONTS --}}
