@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Site;
+use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
 
 class SiteController extends Controller
@@ -181,6 +182,45 @@ class SiteController extends Controller
             ]
         ]);
 
+    }
+
+
+
+
+    /// GRAB SEARCH TERM
+
+    public function grabSearchTerm(Request $request){
+        $request->validate([
+            'search_term' => ''
+        ]);
+        // dd($request->search_term);
+        return redirect('search/'.$request->search_term);
+        
+        // return redirect('/')->with('toast', 'Search term is empty');
+    }
+
+
+
+
+    // SEARCH RESULTS
+
+    public function searchResults(string $search_term = null){
+
+        $criminal_cases = $this->site->searchCriminalCases($search_term);
+        $articles = $this->site->searchArticles($search_term);
+        $criminals = $this->site->searchCriminals($search_term);
+
+        $total_results = count($criminal_cases) + count($articles) + count($criminals);
+
+        return view('pages.search-results', [
+            'pageHeadings' => [
+                'Seach results',
+                $total_results . ' results found for seach term: "'.$search_term.'"'
+            ],
+            'criminal_cases' => $criminal_cases,
+            'articles' => $articles,
+            'criminals' => $criminals,
+        ]);
     }
 
 

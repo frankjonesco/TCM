@@ -261,7 +261,11 @@
 
 <div id="navSearchBar">
 
-    <form action="/search" method="post">
+    <form 
+        id="navSearchForm"
+        action="/grab-search-term" 
+        method="POST"
+    >
         
         @csrf
 

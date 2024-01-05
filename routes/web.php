@@ -52,6 +52,8 @@ Route::controller(SiteController::class)->group(function(){
     Route::get('/opportunities', 'viewOpportunities');
     Route::get('/privacy-policy', 'viewPrivacyPolicy');
     Route::get('/terms-of-use', 'viewTermsOfUse');
+    Route::post('grab-search-term', 'grabSearchTerm');
+    Route::get('/search/{search_term}', 'searchResults');
 
 });
 
