@@ -20,7 +20,7 @@
   'content_image_height' => 675,
   'pagination_items' => 12,
   'environment' => 'production',
-  'css_assets' => 'app-M_w3KzCO.css',
+  'css_assets' => 'app-RT9tLJCG.css ',
   'js_assets' => 'app-d5fXiCvN.js',
   'google_analytics_tag' => 'G-41956QHQLE',
   'created_at' => '2023-12-27T18:39:25.000000Z',

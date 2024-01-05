@@ -44,7 +44,13 @@ main{
     
     @apply mx-auto;
     @apply px-6;
+
+
     
+}
+
+.container-sm{
+    @apply w-2/5;
 }
 
 
@@ -79,6 +85,24 @@ main{
         @apply text-left;
     }
 
+}
+
+
+
+
+/*************************/
+/* FLEX */
+/*************************/
+
+
+/* CONTENT FLEX */
+
+.content-flex{
+    @apply w-full;
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply gap-10;
 }
 
 

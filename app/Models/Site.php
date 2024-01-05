@@ -297,6 +297,69 @@ private function getResources(
         return self::getResources($model, $paginate, $limit, $status, $random, $order, $sort);
 
     }
+
+
+
+
+    private function getSearchResources($model, string $search_term, $search_field = 'title', bool $paginate = false, int $limit = null, $random = null, string $order = null, string $sort = null){
+
+        $order = $order ?: 'created_at';
+        $sort = $sort ?: 'desc';
+        $search_field = $search_field ?: 'title';
+        if($paginate){
+    
+            $limit = $limit ?: 12;
+            $prepend = self::getController() == 'AdminController' ? 'admin/' : null;
+    
+            return $model::where($search_field, 'LIKE', '%'.$search_term.'%')
+                ->orderBy($order, $sort)
+                ->paginate($limit)
+                ->withPath($prepend.$model->modelData()->directory);
+    
+        }
+    
+        if($limit){
+            if($random)
+                return $model::inRandomOrder()->take($limit)->get();
+            else
+                return $model::orderBy($order, 'desc')->take($limit)->get();
+        }
+    
+        return $model::orderBy($order, $sort)->get();
+    
+    }
+    
+    
+    
+    
+    // RESOURCE: SEARCH CRIMINAL CASES
+    
+    public function searchCriminalCases(string $search_term, string $search_field = null, bool $paginate = true, int $limit = 12, $random = false, $order = null, $sort = null){
+    
+        $model = new CriminalCase();
+        return self::getSearchResources($model, $search_term, $search_field, $paginate, $limit, $random, $order, $sort);
+    
+    }
+    
+    
+    // RESOURCE: SEARCH ARTICLES
+    
+    public function searchArticles(string $search_term, string $search_field = null, bool $paginate = true, int $limit = 12, $random = false, $order = null, $sort = null){
+    
+        $model = new Article();
+        return self::getSearchResources($model, $search_term, $search_field, $paginate, $limit, $random, $order, $sort);
+    
+    }
+    
+    
+    // RESOURCE: SEARCH CRIMINALS
+    
+    public function searchCriminals(string $search_term, string $search_field = 'first_name', bool $paginate = true, int $limit = 12, $random = false, $order = null, $sort = null){
+    
+        $model = new Criminal();
+        return self::getSearchResources($model, $search_term, $search_field, $paginate, $limit, $random, $order, $sort);
+    
+    }
     
     
 

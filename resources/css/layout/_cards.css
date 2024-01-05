@@ -198,19 +198,27 @@
 
 .content-list-item{
     @apply p-2;
+    @apply w-full;
     @apply flex;
+    @apply justify-center;
     @apply items-center;
     @apply shadow;
 
 
     >.image{
 
-        @apply w-2/5;
+        @apply w-full;
+        @apply mx-auto;
+        @apply text-center;
 
 
-        >img{
+        >a{
+            @apply inline-block;
+            @apply mx-auto;
+            img{
 
-            @apply w-full;
+                @apply w-full;
+            }
 
         }
 
