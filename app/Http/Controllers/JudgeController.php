@@ -69,6 +69,8 @@ class JudgeController extends Controller
     {
         $this->page->injectMetadata('Judge '.$judge->fullName().' - Profile on '.config('app.name'), false, truncate($judge->bio, 300));
 
+        addView($judge);
+
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 'Judge '.$judge->fullName(),

@@ -69,6 +69,7 @@ class CriminalCaseController extends Controller
 
         $this->page->injectMetadata($criminal_case->title, true, truncate($criminal_case->caption, 300));
 
+        addView($criminal_case);
 
         return view($this->model->directory.'.show', [
             'pageHeadings' => [

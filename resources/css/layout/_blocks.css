@@ -106,6 +106,7 @@ main{
     @apply flex;
     @apply flex-col;
     @apply items-center;
+    @apply gap-10   
 }
 
 

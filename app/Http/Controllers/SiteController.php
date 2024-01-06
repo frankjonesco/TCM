@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Site;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
@@ -10,11 +11,12 @@ class SiteController extends Controller
 {
 
 
-    protected $site;
+    protected $site, $page;
 
-    public function __construct(Site $site){
+    public function __construct(){
 
-        $this->site = $site;
+        $this->site = new Site();
+        $this->page = new Page();
         
     }
 
@@ -45,7 +47,7 @@ class SiteController extends Controller
 
     public function viewAboutUs(){
 
-        $this->site->injectMetadata('About us', true);
+        $this->page->injectMetadata('About us', true);
 
         return view('pages.about-us', [
             'pageHeadings' => [
@@ -63,7 +65,7 @@ class SiteController extends Controller
 
     public function viewContactUs(){
 
-        $this->site->injectMetadata('Contact us', true);
+        $this->page->injectMetadata('Contact us', true);
 
         return view('pages.contact-us', [
             'pageHeadings' => [
@@ -81,7 +83,7 @@ class SiteController extends Controller
 
     public function viewOpportunities(){
 
-        $this->site->injectMetadata('Opportunities', true);
+        $this->page->injectMetadata('Opportunities', true);
 
         return view('pages.opportunities', [
             'pageHeadings' => [
@@ -99,7 +101,7 @@ class SiteController extends Controller
 
     public function viewPrivacyPolicy(){
 
-        $this->site->injectMetadata('Privacy policy', true, null, true);
+        $this->page->injectMetadata('Privacy policy', true, '', true);
 
         return view('pages.privacy-policy', [
             'pageHeadings' => [
@@ -147,7 +149,7 @@ class SiteController extends Controller
 
     public function viewTermsOfUse(){
 
-        $this->site->injectMetadata('Terms of use', true, null, true);
+        $this->page->injectMetadata('Terms of use', true, '', true);
 
         return view('pages.terms-of-use', [
             'pageHeadings' => [
@@ -197,10 +199,9 @@ class SiteController extends Controller
         $request->validate([
             'search_term' => ''
         ]);
-        // dd($request->search_term);
+
         return redirect('search/'.$request->search_term);
         
-        // return redirect('/')->with('toast', 'Search term is empty');
     }
 
 

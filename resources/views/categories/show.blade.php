@@ -1,4 +1,4 @@
-<x-layout.app :pageHeadings="$pageHeadings">
+<x-layout.app :pageHeadings="$pageHeadings" :breadcrumbs="$breadcrumbs">
 
     {{-- GRID --}}
 
@@ -7,11 +7,9 @@
 
         @foreach($criminal_cases as $criminal_case)
 
-        {{-- {{dd($criminal_case->category)}} --}}
-
             {{-- CONTENT LIST ITEM --}}
 
-            <x-cards.content-list-item :resource="$criminal_case" class="content-list-item-vertical" />
+            <x-cards.content-list-item :resource="$criminal_case" class="vertical-layout" />
 
 
         @endforeach

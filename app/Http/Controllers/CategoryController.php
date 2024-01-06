@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Site;
 use App\Models\Category;
+use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
 
 class CategoryController extends Controller
 {
 
-    protected $site, $model, $directory, $label, $plural, $pageHeadings, $viewAssets, $toast;
+    protected $site, $model, $page, $pageHeadings, $toast, $viewAssets;
 
 
     public function __construct()
@@ -22,6 +23,7 @@ class CategoryController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
         $this->site = new Site();
         $this->model = $this->site->formatModelData('Category', 'md');
+        $this->page = new Page();
         $this->pageHeadings = $this->site->getPageHeadings($this->model);
         $this->toast = "Good!";
         $this->viewAssets = (object) array(
@@ -37,10 +39,21 @@ class CategoryController extends Controller
 
     public function index() : View 
     {
-        $this->site->injectMetadata('True crime '.$this->model->plural, true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
+        $this->page->injectMetadata('True crime '.$this->model->plural, true, 'List of the different categories of the true crimes we have covered. Types of crime, murdered and offences.');
 
+        
         return view($this->model->directory.'.index', [
             'pageHeadings' => $this->pageHeadings,
+            'breadcrumbs' => [
+                [
+                    'label' => 'Home',
+                    'link' => '/'
+                ],
+                [
+                    'label' => $this->model->plural,
+                    'link' => '/'.$this->model->directory
+                ]
+            ],
             'categories' => $this->site->categories(true, 50, 'public')
         ]);
 
@@ -54,12 +67,28 @@ class CategoryController extends Controller
 
     public function show(Category $category) : View
     {
-        $this->site->injectMetadata('Crime category: '.$category->name, true, $category->description);
+        $this->page->injectMetadata('Crime category: '.$category->name, true, $category->description);
+
+        addView($category);
 
         return view('categories.show', [
             'pageHeadings' => [
                 $category->name,
                 $category->description
+            ],
+            'breadcrumbs' => [
+                [
+                    'label' => 'Home',
+                    'link' => '/'
+                ],
+                [
+                    'label' => $this->model->plural,
+                    'link' => '/'.$this->model->directory
+                ],
+                [
+                    'label' => $category->name,
+                    'link' => $category->link()
+                ]
             ],
             'criminal_cases' => $category->criminal_cases()->paginate()
         ]);
@@ -75,7 +104,7 @@ class CategoryController extends Controller
     public function adminIndex() : View
     {
 
-        $this->site->injectMetadata('Manage '.$this->model->plural, true, null, true);
+        $this->page->injectMetadata('Manage '.$this->model->plural, true, '', true);
 
         return view('admin.resources.index', [
             'pageHeadings' => $this->pageHeadings,
@@ -94,7 +123,7 @@ class CategoryController extends Controller
 
     public function create() : View
     {
-        $this->site->injectMetadata('Create '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Create '.$this->model->label, true, '', true);
 
         return view('admin.resources.create', [
             'pageHeadings' => $this->pageHeadings,
@@ -150,7 +179,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category) : View
     {
-        $this->site->injectMetadata('Edit '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Edit '.$this->model->label, true, '', true);
 
         return view('admin.resources.edit', [
             'pageHeadings' => $this->pageHeadings,
@@ -208,7 +237,7 @@ class CategoryController extends Controller
 
     public function confirmDelete(Category $category) : View
     {
-        $this->site->injectMetadata('Delete '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Delete '.$this->model->label, true, '', true);
 
         return view('admin.resources.confirm-delete', [
             'pageHeadings' => $this->pageHeadings,

@@ -69,6 +69,8 @@ class CriminalController extends Controller
     {
         $this->page->injectMetadata($criminal->fullName().' - Criminal profile on '.config('app.name'), false, truncate($criminal->description, 300));
 
+        addView($criminal);
+
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 $criminal->fullName(),
@@ -87,7 +89,6 @@ class CriminalController extends Controller
                     'label' => $criminal->fullName(),
                     'link' => '/'.$criminal->link()
                 ]
-
             ],
             'criminal' => $criminal
         ]);

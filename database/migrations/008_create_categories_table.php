@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('color')->nullable();
+            $table->integer('views')->default(0);
             $table->timestamps();
             $table->string('status');
         });

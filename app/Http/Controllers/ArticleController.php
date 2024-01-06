@@ -72,6 +72,8 @@ class ArticleController extends Controller
     {
         $this->page->injectMetadata($article->title, true, truncate($article->subtitle, 300));
 
+        addView($article);
+        
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 $article->title,
