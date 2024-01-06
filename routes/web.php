@@ -49,6 +49,7 @@ Route::controller(SiteController::class)->group(function(){
     Route::get('/', 'viewHome');
     Route::get('/about-us', 'viewAboutUs');
     Route::get('/contact-us', 'viewContactUs');
+    Route::post('/contact-us/send', 'sendContactMessage');
     Route::get('/opportunities', 'viewOpportunities');
     Route::get('/privacy-policy', 'viewPrivacyPolicy');
     Route::get('/terms-of-use', 'viewTermsOfUse');

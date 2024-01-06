@@ -79,6 +79,17 @@ class SiteController extends Controller
 
 
 
+    // SEND CONTACT MESSAGE
+
+    public function sendContactMessage(Request $request){
+
+        
+
+    }
+
+
+
+
     // VIEW OPPORTUNITIES
 
     public function viewOpportunities(){

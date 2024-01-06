@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\City;
+use App\Models\Contact;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class CitySeeder extends Seeder
+class ContactSeeder extends Seeder
 {
 
     // RUN SEEDER
     
     public function run(): void
     {
-        $model = new City();
+        $model = new Contact();
         
         $items = $model::on('mysql_import')->get();
 
@@ -21,13 +21,15 @@ class CitySeeder extends Seeder
 
             $model::on('mysql')->create([
                 'id' => $item->id,
-                'state_id' => $item->state_id,      
-                'name' => $item->name,      
-                'slug' => $item->slug
+                'name' => $item->state_id,      
+                'email' => $item->name,      
+                'message' => $item->slug,
+                'created_at' => $item->created_at,
+                'updated_at' => $item->updated_at
             ]);
 
         }
 
     }
-    
+
 }

@@ -6,8 +6,10 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+
     public function run(): void
     {
+
         $this->call([
             ConfigSeeder::class,
             UserTypeSeeder::class,
@@ -20,10 +22,11 @@ class DatabaseSeeder extends Seeder
             CriminalCaseSeeder::class,
             CriminalSeeder::class,
             JudgeSeeder::class,
-
             ArticleSeeder::class,
-
             ImageSeeder::class,
+            ContactSeeder::class
         ]);
+        
     }
+
 }
