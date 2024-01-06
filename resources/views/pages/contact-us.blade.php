@@ -11,39 +11,39 @@
             @method('POST')
 
 
-            {{-- SENDER NAME --}}
+            {{-- NAME --}}
 
             <div class="field">
 
-                <label for="sender_name">
+                <label for="name">
                     Name
                 </label>
 
                 <input 
                     type="text"
-                    name="sender_name"
+                    name="name"
                     placeholder="Your name"
-                    value="{{$errors->has('sender_name') ? null : old('sender_name')}}"
-                    {{$errors->has('sender_name') ? 'autofocus' : null}}
+                    value="{{$errors->has('name') ? null : old('name')}}"
+                    {{$errors->has('name') ? 'autofocus' : null}}
                 >
 
             </div>
 
 
-            {{-- SENDER EMAIL --}}
+            {{--  EMAIL --}}
 
             <div class="field">
 
-                <label for="sender_email">
+                <label for="email">
                     Email
                 </label>
 
                 <input 
                     type="email"
-                    name="sender_email"
+                    name="email"
                     placeholder="Your email"
-                    value="{{$errors->has('sender_email') ? null : old('sender_email')}}"
-                    {{$errors->has('sender_email') ? 'autofocus' : null}}
+                    value="{{$errors->has('email') ? null : old('email')}}"
+                    {{$errors->has('email') ? 'autofocus' : null}}
                 >
 
             </div>
@@ -58,11 +58,11 @@
                 </label>
 
                 <textarea
-                    name="sender_email"
+                    name="message"
                     placeholder="Your message"
                     rows="5"
-                    value="{{$errors->has('sender_email') ? null : old('sender_email')}}"
-                    {{$errors->has('sender_email') ? 'autofocus' : null}}
+                    value="{{$errors->has('message') ? null : old('message')}}"
+                    {{$errors->has('message') ? 'autofocus' : null}}
                 ></textarea>
 
             </div>

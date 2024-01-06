@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\Site;
+use App\Mail\SampleMail;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 
 class SiteController extends Controller
 {
@@ -81,9 +84,17 @@ class SiteController extends Controller
 
     // SEND CONTACT MESSAGE
 
-    public function sendContactMessage(Request $request){
+    public function sendContactMessage(Request $request) : RedirectResponse
+    {    
+        $mailData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
 
-        
+        Mail::to('frankjones.web@gmail.com')->send(new SampleMail($mailData));
+                
+        return redirect('/')->with('toast', 'Message sent.');
 
     }
 
