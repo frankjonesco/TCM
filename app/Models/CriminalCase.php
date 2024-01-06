@@ -118,6 +118,17 @@ class CriminalCase extends Model
 
 
 
+    // FETCH BG IMAGE POSITION
+
+    public function imageBgPosition(string $bg_position = 'center'){
+
+        $image = new ImageProcess();
+        return $image->bgPosition($this, $bg_position);
+
+    }
+
+
+
 
     // LINKS
 

@@ -165,6 +165,18 @@ class ImageProcess extends Model
         return asset('images/'.$directory.'/'.$resource_hex.'/'.$filename);
     }
 
+
+    // FETCH BG IMAGE POSITION
+
+    public function bgPosition($resource = null, string $bg_position = 'center'){
+
+        if($resource->main_image)
+            $bg_position = $resource->main_image->bg_position ?: $bg_position;
+
+        return 'bg-'.$bg_position;
+
+    }   
+
     
 
 

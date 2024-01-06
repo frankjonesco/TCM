@@ -10,7 +10,7 @@
 
             {{-- CONTENT LIST ITEM --}}
 
-            <x-cards.content-list-item :resource="$criminal_case" class="vertical-layout" />
+            <x-cards.content-image-text-overlay :resource="$criminal_case" class="vertical-layout" />
 
 
         @endforeach
