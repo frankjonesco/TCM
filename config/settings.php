@@ -19,11 +19,11 @@
   'content_image_width' => 1200,
   'content_image_height' => 675,
   'pagination_items' => 12,
-  'environment' => 'development',
+  'environment' => 'production',
   'css_assets' => 'app-yVUKIu85.css',
   'js_assets' => 'app-d5fXiCvN.js',
   'google_analytics_tag' => 'G-41956QHQLE',
   'created_at' => '2023-12-27T18:39:25.000000Z',
   'updated_at' => '2023-12-28T09:17:06.000000Z',
-  'site_offline' => 0,
+  'site_offline' => 0
 );
