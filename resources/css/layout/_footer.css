@@ -60,6 +60,8 @@
         @apply border-y;
         @apply border-slate-800;
 
+        @apply text-center;
+
         @apply tracking-tight;
 
 
@@ -109,6 +111,8 @@
     div.legals{
 
         @apply flex;
+        @apply flex-col;
+        @apply sm:flex-row;
         @apply gap-0;
 
         @apply text-xs;
@@ -119,6 +123,9 @@
 
         span{
 
+            @apply text-center;
+            @apply sm:text-start;
+
 
             &::after{
 
@@ -126,6 +133,9 @@
                 @apply mr-2;
 
                 content: '\00b7';
+
+                @apply hidden;
+                @apply sm:block;
 
             }
 

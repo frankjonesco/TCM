@@ -196,7 +196,6 @@
     @apply bg-cover;
     @apply bg-no-repeat;
     @apply shadow-xl;
-    @apply mb-6;
     
         
     >div{
@@ -262,7 +261,8 @@
 
 .content-list-item{
 
-    @apply w-full;
+    @apply mx-auto;
+    @apply w-fit;
     @apply h-full;
 
     @apply flex;
@@ -276,6 +276,8 @@
 
         @apply p-2;
         @apply w-2/5;
+        @apply flex;
+        @apply justify-center;
 
 
         a{
@@ -287,7 +289,8 @@
 
     div.text{
 
-        @apply px-12;
+        @apply px-4;
+        @apply md:px-12;
         @apply w-3/5;
         @apply -translate-y-1.5;
 
@@ -301,15 +304,30 @@
 
 
         .category-pip{
+
             @apply inline-block;
             @apply w-fit;
+
+            @apply text-[9px];
+            @apply px-1.5;
+            @apply py-[1px];
+
+            @apply md:text-xs;
+            @apply md:px-2;
+            @apply md:py-1;
+
         }
 
 
         a.title{
+
             @apply heading-3;
+            @apply text-base;
+            @apply md:text-xl;
             @apply mb-0;
+
         }
+
     }
 
 
@@ -321,8 +339,6 @@
 
 
         @apply flex-col;
-
-
         @apply justify-start;    
 
 
@@ -330,16 +346,17 @@
 
         
             @apply w-full;
-
             @apply self-start;
-        
 
         }
 
+
         div.text{
+
             @apply w-full;
             @apply p-6;
 
+            
             a.title{
                 @apply text-lg;
             }
@@ -605,7 +622,8 @@ section.admin-content{
 .document-card{
 
     @apply mx-auto;
-    @apply w-3/4;
+    @apply w-full;
+    @apply lg:w-3/4;
 
 
     .section{

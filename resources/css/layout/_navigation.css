@@ -142,7 +142,7 @@
             @apply justify-center;
             @apply items-center;
 
-            @apply z-10;
+            @apply z-0;
 
 
             span{
@@ -276,7 +276,8 @@ nav.admin-nav{
 
     @apply w-fit;
 
-    @apply flex;
+    @apply hidden;
+    @apply lg:flex;
     
 
     @apply bg-sky-50;

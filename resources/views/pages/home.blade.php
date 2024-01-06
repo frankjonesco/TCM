@@ -18,9 +18,9 @@
     
     </div>
 
-    <div class="flex gap-6">
+    <div class="flex flex-col xl:flex-row gap-6">
 
-        <div class="w-2/3 flex flex-col gap-6">
+        <div class="w-full xl:w-2/3 flex flex-col gap-6">
 
             <div class="block-heading">
                 <span>
@@ -33,14 +33,14 @@
 
                 {{-- CONTENT LIST ITEM --}}
 
-                <x-cards.content-list-item :resource="$article" class="content-list-item" />
+                <x-cards.content-list-item :resource="$article" />
 
 
             @endforeach
 
         </div>
 
-        <div class="w-1/3 sidebar">
+        <div class="w-1/3 sidebar hidden xl:block">
 
             <div class="color-block">
                 <div class="block-heading">

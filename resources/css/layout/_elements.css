@@ -294,6 +294,9 @@ select:not(:valid){
 
 .breadcrumbs{
 
+    @apply hidden;
+    @apply md:block;
+
     @apply mx-auto;
     @apply mt-6;
     @apply mb-4;

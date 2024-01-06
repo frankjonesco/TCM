@@ -50,7 +50,9 @@ main{
 }
 
 .container-sm{
-    @apply w-2/5;
+    @apply w-full;
+    @apply lg:w-3/5;
+    @apply xl:w-2/5;
 }
 
 
@@ -68,7 +70,9 @@ main{
     @apply mb-6;
     
     @apply grid;
-    @apply grid-cols-4;
+    @apply grid-cols-1;
+    @apply lg:grid-cols-2;
+    @apply xl:grid-cols-4;
     @apply gap-5;
 
 }
@@ -85,9 +89,14 @@ main{
 
     @apply container;
 
+    @apply text-center;
+
+    @apply md:text-left;
+
     h3{
-        @apply text-left;
+        @apply md:text-left;
     }
+    
 
 }
 
