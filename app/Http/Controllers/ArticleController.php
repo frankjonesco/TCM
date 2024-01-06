@@ -44,7 +44,20 @@ class ArticleController extends Controller
 
         
         return view($this->model->directory.'.index', [
-            'pageHeadings' => $this->pageHeadings,
+            'pageHeadings' => [
+                'News articles',
+                'Why do you read so much about True Crime? Is something wrong with you? Are you sick?'
+            ],
+            'breadcrumbs' => [
+                [
+                    'label' => 'Home',
+                    'link' => '/'
+                ],
+                [
+                    'label' => 'News',
+                    'link' => '/'.$this->model->directory
+                ]
+            ],
             'articles' => $this->site->articles(true, 12, 'public')
         ]);
 
@@ -63,6 +76,20 @@ class ArticleController extends Controller
             'pageHeadings' => [
                 $article->title,
                 $article->subtitle ?: 'Something about the article',
+            ],
+            'breadcrumbs' => [
+                [
+                    'label' => 'Home',
+                    'link' => '/'
+                ],
+                [
+                    'label' => 'News',
+                    'link' => '/'.$this->model->directory
+                ],
+                [
+                    'label' => $article->criminal_case->short_name,
+                    'link' => $article->criminal_case->link()
+                ]
             ],
             'article' => $article
         ]);

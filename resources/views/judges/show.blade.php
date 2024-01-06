@@ -1,4 +1,4 @@
-<x-layout.app :pageHeadings="$pageHeadings">
+<x-layout.app :pageHeadings="$pageHeadings" :breadcrumbs="$breadcrumbs">
 
 
     {{-- SET OG:META FOR SHARING THIS PAGE --}}

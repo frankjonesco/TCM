@@ -65,6 +65,7 @@ h1,h2,h3,h4,h5,h6{
 h1, .heading-1{
 
     @apply py-5;
+    @apply pb-8;
     
     @apply text-4xl;
     @apply sm:text-5xl;
@@ -78,7 +79,7 @@ h1, .heading-1{
 
 h2, .heading-2{
 
-    @apply mb-10;
+    @apply mb-12;
     @apply text-2xl;
     @apply sm:text-3xl;
     @apply font-thin;

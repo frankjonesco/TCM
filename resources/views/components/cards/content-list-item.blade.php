@@ -68,6 +68,19 @@
         </a>
 
 
+
+
+        {{--  --}}
+
+        @if($resource->modelData('name') === 'Judge')
+
+            <span class="font-poppins font-light text-sm pb-1.5">{{$resource->county->name.', '.$resource->state->name}}</span>
+
+        @endif
+
+
+
+
         @unless(isset($listSize) && $listSize === 'sm')
 
             {{-- RESOURCE PUBLISHING INFORMATION --}}
@@ -75,6 +88,8 @@
             <x-elements.resource-publishing-information :resource="$resource" />
 
         @endunless
+
+
 
 
     </div>

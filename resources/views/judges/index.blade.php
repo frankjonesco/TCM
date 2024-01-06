@@ -1,4 +1,4 @@
-<x-layout.app :pageHeadings="$pageHeadings">
+<x-layout.app :pageHeadings="$pageHeadings" :breadcrumbs="$breadcrumbs">
 
 
     {{-- GRID --}}
@@ -11,7 +11,7 @@
 
             {{-- CONTENT LIST ITEM --}}
 
-            <x-cards.content-list-item :resource="$judge" class="content-list-item-vertical" />
+            <x-cards.content-list-item :resource="$judge" class="vertical-layout" />
 
 
         @endforeach
