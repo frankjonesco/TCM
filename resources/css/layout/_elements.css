@@ -288,6 +288,37 @@ select:not(:valid){
 
 
 /*************************/
+/* BREADCRUMBS */
+/*************************/
+
+
+.breadcrumbs{
+
+    @apply mx-auto;
+    @apply mt-6;
+    @apply mb-4;
+    @apply pt-1;
+    @apply w-fit;
+
+    @apply text-sm;
+    @apply uppercase;
+    @apply tracking-tight;
+
+
+    ul{
+
+        @apply flex;
+        @apply gap-6;
+
+    }   
+
+
+}
+
+
+
+
+/*************************/
 /* CATEGORY PIP */
 /*************************/
 

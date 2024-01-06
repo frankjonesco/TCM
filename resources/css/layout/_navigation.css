@@ -117,6 +117,8 @@
             @apply flex;
             @apply justify-end;
             @apply items-center;
+
+            @apply z-0;
             
 
             a{
@@ -139,6 +141,8 @@
             @apply flex-col;
             @apply justify-center;
             @apply items-center;
+
+            @apply z-10;
 
 
             span{

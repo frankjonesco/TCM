@@ -11,7 +11,7 @@
 
             {{-- CONTENT LIST ITEM --}}
 
-            <x-cards.content-list-item :resource="$article" class="content-list-item-vertical" />
+            <x-cards.content-list-item :resource="$article" class="article-layout" />
 
 
         @endforeach

@@ -131,30 +131,7 @@ class Site extends Model
 
 
 
-    // INJECT METADATA
-
-    function injectMetadata(?string $title = null, bool $prepend = false, ?string $description = null, bool $noindex = false) : Void {
-            
-        // TITLE
-
-        if($prepend)
-            Meta::prependTitle($title);
-        else
-            Meta::setTitle($title);
-
-
-        // DESCRIPTION
-
-        if($description)
-            Meta::setDescription($description);
-
-
-        // NO ROBOTS
-
-        if($noindex)
-            Meta::addMeta('robots', ['content' => 'noindex']);
-
-    }
+    
 
 
 

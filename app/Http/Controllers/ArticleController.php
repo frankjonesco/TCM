@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Page;
 use App\Models\Site;
-use App\Models\Judge;
 use App\Models\Article;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -17,7 +17,7 @@ use Illuminate\Http\RedirectResponse;
 class ArticleController extends Controller
 {
 
-    protected $site, $model, $directory, $label, $plural, $pageHeadings, $viewAssets, $toast;
+    protected $site, $model, $page, $pageHeadings, $toast, $viewAssets;
 
 
     public function __construct()
@@ -25,6 +25,7 @@ class ArticleController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
         $this->site = new Site();
         $this->model = $this->site->formatModelData('Article', 'lg');
+        $this->page = new Page();
         $this->pageHeadings = $this->site->getPageHeadings($this->model);
         $this->toast = "Good!";
         $this->viewAssets = (object) array(
@@ -39,7 +40,7 @@ class ArticleController extends Controller
 
     public function index() : View
     {
-        $this->site->injectMetadata('True Crime Metrix - News articles', true, 'The latest in True Crime news about the criminals, victims, judges, attorneys and witnesses from the most popular True Crime cases and stories.');
+        $this->page->injectMetadata('True Crime Metrix - News articles', true, 'The latest in True Crime news about the criminals, victims, judges, attorneys and witnesses from the most popular True Crime cases and stories.');
 
         
         return view($this->model->directory.'.index', [
@@ -56,7 +57,7 @@ class ArticleController extends Controller
 
     public function show(Article $article) : View
     {
-        $this->site->injectMetadata($article->title, true, truncate($article->subtitle, 300));
+        $this->page->injectMetadata($article->title, true, truncate($article->subtitle, 300));
 
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
@@ -78,7 +79,7 @@ class ArticleController extends Controller
 
     public function adminIndex() : View
     {
-        $this->site->injectMetadata('Manage '.$this->model->plural, true, null, true);
+        $this->page->injectMetadata('Manage '.$this->model->plural, true, '', true);
 
         return view('admin.resources.index', [
             'pageHeadings' => $this->pageHeadings,
@@ -95,7 +96,7 @@ class ArticleController extends Controller
         
     public function create() : View
     {
-        $this->site->injectMetadata('Create '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Create '.$this->model->label, true, '', true);
 
         return view('admin.resources.create', [
             'pageHeadings' => $this->pageHeadings,
@@ -191,7 +192,7 @@ class ArticleController extends Controller
 
     public function edit(CriminalCase $criminal_case) : View
     {
-        $this->site->injectMetadata('Create '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Create '.$this->model->label, true, '', true);
 
         return view('admin.resources.edit', [
             'pageHeadings' => $this->pageHeadings,
@@ -258,7 +259,7 @@ class ArticleController extends Controller
 
     public function confirmDelete(CriminalCase $criminal_case) : View
     {
-        $this->site->injectMetadata('Delete '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Delete '.$this->model->label, true, '', true);
 
         return view('admin.resources.confirm-delete', [
             'pageHeadings' => $this->pageHeadings,

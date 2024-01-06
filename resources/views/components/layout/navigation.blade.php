@@ -100,6 +100,21 @@
     <x-blocks.container class="menuItems">
 
 
+        {{-- NEWS --}}
+
+        <span>
+
+            <a 
+                href="/articles"
+                title="True crime news articles"
+                aria-label="True crime news articles"
+            >
+                News
+            </a>
+
+        </span>
+
+
         {{-- CATEGORIES --}}
 
         <span>
@@ -155,21 +170,6 @@
                 aria-label="True crime judges"
             >
                 Judges
-            </a>
-
-        </span>
-
-
-        {{-- NEWS ARTICLES --}}
-
-        <span>
-
-            <a 
-                href="/articles"
-                title="True crime news articles"
-                aria-label="True crime news articles"
-            >
-                News articles
             </a>
 
         </span>

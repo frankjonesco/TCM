@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Page;
 use App\Models\Site;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -15,7 +16,7 @@ use Illuminate\Http\RedirectResponse;
 class CriminalCaseController extends Controller
 {
 
-    protected $site, $model, $directory, $label, $plural, $pageHeadings, $viewAssets, $toast;
+    protected $site, $model, $page, $pageHeadings, $toast, $viewAssets;
 
 
     public function __construct()
@@ -23,6 +24,7 @@ class CriminalCaseController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
         $this->site = new Site();
         $this->model = $this->site->formatModelData('CriminalCase', 'lg');
+        $this->page = new Page();
         $this->pageHeadings = $this->site->getPageHeadings($this->model);
         $this->toast = "Good!";
         $this->viewAssets = (object) array(
@@ -37,11 +39,21 @@ class CriminalCaseController extends Controller
 
     public function index() : View
     {
-        $this->site->injectMetadata(ucfirst($this->model->plural), true, 'List of the true crime cases we have covered. Deep-dive information on the hottest cases in true crime. Statistics and news about upcoming court cases, criminal news stories and data gathering.');
+        $this->page->injectMetadata(ucfirst($this->model->plural), true, 'List of the true crime cases we have covered. Deep-dive information on the hottest cases in true crime. Statistics and news about upcoming court cases, criminal news stories and data gathering.');
 
         
         return view($this->model->directory.'.index', [
             'pageHeadings' => $this->pageHeadings,
+            'breadcrumbs' => [
+                [
+                    'label' => 'Home',
+                    'link' => '/'
+                ],
+                [
+                    'label' => $this->model->plural,
+                    'link' => '/'.$this->model->directory
+                ]
+            ],
             'criminal_cases' => $this->site->criminalCases(true, 12, 'public')
         ]);
 
@@ -55,12 +67,27 @@ class CriminalCaseController extends Controller
     public function show(CriminalCase $criminal_case) : View
     {
 
-        $this->site->injectMetadata($criminal_case->title.' - True Crime Metrix', false, truncate($criminal_case->caption, 300));
+        $this->page->injectMetadata($criminal_case->title, true, truncate($criminal_case->caption, 300));
+
 
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 $criminal_case->title,
                 $criminal_case->caption
+            ],
+            'breadcrumbs' => [
+                [
+                    'label' => 'Home',
+                    'link' => '/'
+                ],
+                [
+                    'label' => $this->model->plural,
+                    'link' => '/'.$this->model->directory
+                ],
+                [
+                    'label' => $criminal_case->short_name,
+                    'link' => $criminal_case->link()
+                ]
             ],
             'criminal_case' => $criminal_case
         ]);
@@ -77,7 +104,7 @@ class CriminalCaseController extends Controller
 
     public function adminIndex() : View
     {
-        $this->site->injectMetadata('Manage '.$this->model->plural, true, null, true);
+        $this->page->injectMetadata('Manage '.$this->model->plural, true, '', true);
 
         return view('admin.resources.index', [
             'pageHeadings' => $this->pageHeadings,
@@ -94,7 +121,7 @@ class CriminalCaseController extends Controller
         
     public function create() : View
     {
-        $this->site->injectMetadata('Create '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Create '.$this->model->label, true, '', true);
 
         return view('admin.resources.create', [
             'pageHeadings' => $this->pageHeadings,
@@ -190,7 +217,7 @@ class CriminalCaseController extends Controller
 
     public function edit(CriminalCase $criminal_case) : View
     {
-        $this->site->injectMetadata('Create '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Create '.$this->model->label, true, '', true);
 
         return view('admin.resources.edit', [
             'pageHeadings' => $this->pageHeadings,
@@ -257,7 +284,7 @@ class CriminalCaseController extends Controller
 
     public function confirmDelete(CriminalCase $criminal_case) : View
     {
-        $this->site->injectMetadata('Delete '.$this->model->label, true, null, true);
+        $this->page->injectMetadata('Delete '.$this->model->label, true, '', true);
 
         return view('admin.resources.confirm-delete', [
             'pageHeadings' => $this->pageHeadings,

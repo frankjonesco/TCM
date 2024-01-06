@@ -108,6 +108,10 @@
 
         <x-blocks.container class="{{isset($containerClass) ? $containerClass : null}}">
         
+            @if(empty($breadcrumbs) === false)
+                <x-elements.breadcrumbs :breadcrumbs="$breadcrumbs" />
+            @endif
+
             @if(empty($pageHeadings) === false)
                 <x-cards.page-headings :pageHeadings="$pageHeadings" />
             @endif
