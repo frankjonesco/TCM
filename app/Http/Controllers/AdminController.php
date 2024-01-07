@@ -40,6 +40,7 @@ class AdminController extends Controller
                 'Manage content',
                 'View, create, edit and delete your content.'
             ],
+            'articles' => $this->site->articles(true, 12),
             'categories' => $this->site->categories(true, 12),
             'criminal_cases' => $this->site->criminalCases(true, 12),
             'criminals' => $this->site->criminals(true, 12),

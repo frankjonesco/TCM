@@ -53,22 +53,22 @@
 
 
 
+    <!-- GOOGLE ANALYTICS -->
     
+    <script defer src="https://www.googletagmanager.com/gtag/js?id={{config('settings.google_analytics_tag')}}"></script>
+    <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{config('settings.google_analytics_tag')}}');
+    </script>
+
+
+
+    {{-- BUILD SCRIPTS --}}
+
     @if(environmentIsProduction())
-
-        <!-- GOOGLE ANALYTICS -->
-    
-        <script defer src="https://www.googletagmanager.com/gtag/js?id={{config('settings.google_analytics_tag')}}"></script>
-        <script defer>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '{{config('settings.google_analytics_tag')}}');
-        </script>
-
-
-        {{-- BUILD SCRIPTS --}}
 
         @foreach(explodeCssAssets() as $cssAsset)
 
@@ -84,11 +84,10 @@
 
     @else
 
-        {{-- BUILD SCRIPTS --}}
-
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @endif
+    
 
 
     {{-- COOKIE CONSENT --}}
