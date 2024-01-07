@@ -19,7 +19,7 @@
   'content_image_width' => 1200,
   'content_image_height' => 675,
   'pagination_items' => 12,
-  'environment' => 'production',
+  'environment' => 'development',
   'css_assets' => 'app-yVUKIu85.css',
   'js_assets' => 'app-d5fXiCvN.js',
   'google_analytics_tag' => 'G-41956QHQLE',
