@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JudgeController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
@@ -231,4 +232,27 @@ Route::controller(SiteController::class)->group(function(){
         Route::get('/login', 'viewLogin')->name('login');
         Route::post('/authenticate', 'authenticate');
         
+    });
+
+
+
+
+// ADMIN CONTROLLER 
+
+
+    // AUTHENTICATED USERS
+
+    Route::controller(AdminController::class)->middleware('auth')->group(function(){
+
+        Route::get('/admin', 'index');
+            
+        Route::get('/admin/config/edit', 'editConfig');
+        Route::put('/admin/config/update', 'updateConfig');
+
+        Route::get('/admin/databases', 'viewDatabases');
+        Route::post('/admin/databases/clone', 'cloneDatabase');
+
+        Route::get('/admin/environment/edit', 'editEnvironment');
+        Route::put('/admin/environment/update', 'updateEnvironment');
+            
     });

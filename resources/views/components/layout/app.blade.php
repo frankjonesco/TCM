@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/png" href="{{asset('images/favicon-94x94.png')}}">
     
-
     @meta_tags
 
     <meta id="ogSiteName" property="og:site_name" content="{{config('app.name')}}" />
@@ -54,23 +53,22 @@
 
 
 
-    <!-- GOOGLE ANALYTICS -->
     
-    <script defer src="https://www.googletagmanager.com/gtag/js?id={{config('settings.google_analytics_tag')}}"></script>
-    <script defer>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{{config('settings.google_analytics_tag')}}');
-    </script>
-
-
-
-
-    {{-- BUILD SCRIPTS --}}
-
     @if(environmentIsProduction())
+
+        <!-- GOOGLE ANALYTICS -->
+    
+        <script defer src="https://www.googletagmanager.com/gtag/js?id={{config('settings.google_analytics_tag')}}"></script>
+        <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{config('settings.google_analytics_tag')}}');
+        </script>
+
+
+        {{-- BUILD SCRIPTS --}}
 
         @foreach(explodeCssAssets() as $cssAsset)
 
@@ -84,8 +82,9 @@
 
         @endforeach
 
-
     @else
+
+        {{-- BUILD SCRIPTS --}}
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
