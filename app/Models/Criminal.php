@@ -183,12 +183,23 @@ class Criminal extends Model
     }
 
 
-    // DATE OF BIRTH
+    // FORMATTED DATE OF BIRTH
 
     public function getFormattedDateOfBirthAttribute($date){   
 
         if($this->date_of_birth != null)
             return Carbon::parse($date)->format('F d, Y');
+
+        return $this->year_of_birth ? Carbon::parse($this->year_of_birth)->format('Y') : null;
+
+    }
+
+    // DATE OF BIRTH
+
+    public function getDateOfBirthShortAttribute($date){   
+
+        if($this->date_of_birth != null)
+            return Carbon::parse($date)->format('d/m/y');
 
         return $this->year_of_birth ? Carbon::parse($this->year_of_birth)->format('Y') : null;
 

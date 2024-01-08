@@ -77,10 +77,10 @@
                         </div>
                     </td>
                     <td>
-                        
+                        {{$criminal->date_of_birth_short}}
                     </td>
                     <td>
-                        
+                        {{$criminal->star_sign}}
                     </td>
                     <td>
                         {{formatViews($criminal->views)}}

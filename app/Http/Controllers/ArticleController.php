@@ -114,7 +114,7 @@ class ArticleController extends Controller
             'pageHeadings' => $this->pageHeadings,
             'model' => $this->model,
             'viewAssets' => $this->viewAssets,
-            'criminal_cases' => $this->site->criminalCases(true, 12)
+            'articles' => $this->site->articles(true, 12)
         ]);
     }
 
@@ -131,11 +131,10 @@ class ArticleController extends Controller
             'pageHeadings' => $this->pageHeadings,
             'form_fields' => [
                 'input-title',
-                'input-short-name',
-                'select-category',
-                'textarea-description-ck-editor',
+                'input-subtitle',
+                'textarea-introduction-ck-editor',
+                'textarea-body-ck-editor',
                 'input-image',
-                'input-country-state-city',
                 'select-status'
             ],
             'model' => $this->model,
@@ -158,23 +157,20 @@ class ArticleController extends Controller
             'hex' => Str::random(11),
             'user_id' => auth()->id(),
             'slug' => Str::slug($request->title),
-            'views' => 0,
+            'views' => 0
         ]);
 
 
         $request->validate([
-            'hex' => 'required|unique:criminal_cases,hex',
+            'hex' => 'required|unique:articles,hex',
             'user_id' => 'required',
-            'title' => 'required',
-            'slug' => 'required|unique:criminal_cases,slug',
-            'short_name' => 'required',
-            'category_id' => '',
-            'caption' => '',
-            'description' => '',
-            'country_id' => '',
-            'city' => '',
+            'title' => 'required|unique:articles,title',
+            'slug' => 'required|unique:articles,slug',
+            'subtitle' => 'required',
+            'introduction' => '',
+            'body' => '',
             'image' => 'required|image|mimes:jpg,png,jpeg,webp,svg|max:2048|dimensions:min_width=100,min_height=100',
-            'views' => 'required|numeric',
+            'views' => 'numeric',
             'status' => 'required',
         ]);
 
@@ -206,7 +202,7 @@ class ArticleController extends Controller
             $image = new ImageProcess();
             $image = $image->upload($request, $resource, $image, true);
 
-            $url = $this->model->directory.'/'.$resource->slug.'/images/'.$image->hex.'/crop/main';
+            $url = $this->model->directory.'/'.$resource->slug.'/images/'.$image->hex.'/crop';
 
         }
 

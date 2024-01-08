@@ -15,7 +15,7 @@
         $field['ckeditor_field'] = ckEditorId('body');
     @endphp
     
-    @include('includes.ckeditor')
+    @include('includes._ckeditor')
 
     <x-elements.validation-error element="body" />
 
