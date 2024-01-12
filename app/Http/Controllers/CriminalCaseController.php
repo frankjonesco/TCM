@@ -71,6 +71,9 @@ class CriminalCaseController extends Controller
 
         addView($criminal_case);
 
+        if($criminal_case->main_image_id === null)
+            $criminal_case->main_image_id = ImageProcess::where('resource_model', 'CriminalCase')->where('resource_id', $criminal_case->id)->first()->id;
+
         return view($this->model->directory.'.show', [
             'pageHeadings' => [
                 $criminal_case->title,
@@ -130,6 +133,7 @@ class CriminalCaseController extends Controller
                 'input-title',
                 'input-short-name',
                 'select-category',
+                'textarea-caption',
                 'textarea-description-ck-editor',
                 'input-image',
                 'input-country-state-city',
@@ -203,7 +207,10 @@ class CriminalCaseController extends Controller
             $image = new ImageProcess();
             $image = $image->upload($request, $resource, $image, true);
 
-            $url = $this->model->directory.'/'.$resource->slug.'/images/'.$image->hex.'/crop/main';
+            $resource->main_image_id = $image->id;
+            $resource->save();
+
+            $url = $this->model->directory.'/'.$resource->slug.'/images/'.$image->hex.'/crop';
 
         }
 
@@ -232,6 +239,7 @@ class CriminalCaseController extends Controller
                 'input-title',
                 'input-short-name',
                 'select-category',
+                'textarea-caption',
                 'textarea-description-ck-editor',
                 'input-country-state-city',
                 'select-status'

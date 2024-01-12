@@ -8,7 +8,7 @@
         name="caption"
         placeholder="Caption"
         rows="5"
-    >{{old('caption') ?: $resource->caption}}</textarea>
+    >{{old('caption') ?: (isset($resource->caption) ? $resource->caption : null)}}</textarea>
 
     <x-elements.validation-error element="caption" />
 

@@ -33,6 +33,16 @@ class CriminalCase extends Model
     ];
 
 
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'main_image_id' => 28
+    ];
+
+
 
 
     // RETURN MODEL DATA   
@@ -78,7 +88,7 @@ class CriminalCase extends Model
         return $this->$routeKeyValue;
 
     }
-
+    
 
 
 
@@ -97,8 +107,14 @@ class CriminalCase extends Model
         }
         
         $size = empty($size) ? null : $size.'-';
-        $filename = $size.$image->filename;
-        $file_path = 'images/'.$this->modelData('directory').'/'.$this->hex.'/'.$filename;
+
+        if($image){
+            $file_path = 'images/'.$this->modelData('directory').'/'.$this->hex.'/'.$size.$image->filename;
+        }
+        else{
+            $file_path = 'images/'.$size.'default-image-true-crime-metrix.webp';
+        }
+        
 
         if(file_exists(public_path($file_path)))
             return asset($file_path);

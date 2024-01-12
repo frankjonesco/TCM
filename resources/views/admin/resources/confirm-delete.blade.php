@@ -28,11 +28,11 @@
 
                 @if($model->has_image == true)
 
-                    <x-cards.content-delete :title="$resource->title" :image="$resource->fetchImage('tn')" />
+                    <x-cards.content-delete-item :title="$resource->title" :image="$resource->fetchImage('tn')" />
 
                 @else
 
-                    <x-cards.content-delete :title="$resource->title" />
+                    <x-cards.content-delete-item :title="$resource->title" />
 
                 @endif
 
