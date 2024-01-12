@@ -81,21 +81,20 @@
 
     @if(count($images) > 0)
 
-    
-
         <section class="grid grid-cols-5 gap-6">
 
             @foreach($images as $image)
 
-                <div>
-                    <div class="border">
-                        <img src="{{$image->fetch('tn')}}" alt="" class="w-full">
-                    </div>
+                <div class="border">
 
-                    <a href="{{$resource->link('images/'.$image->hex.'/delete')}}" class="btn-danger">
-                        <i class="fa-solid fa-trash"></i>
-                        Delete
+                    <a 
+                        href="/{{$directory}}/{{$resource->routeKeyValue()}}/images/{{$image->routeKeyValue()}}/edit"
+                        title="Edit this image"
+                        aria-label="Edit this image"
+                    >
+                        <img src="{{$image->fetch('tn')}}" alt="" class="w-full">
                     </a>
+
                 </div>
 
             @endforeach

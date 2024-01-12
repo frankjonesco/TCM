@@ -142,11 +142,37 @@ class ImageController extends Controller
 
 
 
+    // VIEW EDIT IMAGE FORM
+
+    public function editImage($directory, $resource_slug, ImageProcess $image) : View
+    {
+        $this->page->injectMetadata('Edit image', true, '', true);
+
+        $model_name = Str::studly(Str::singular($directory));
+        $model = $image->resourceModel($model_name);
+
+        return view('admin.resources.edit-image', [
+            'pageHeadings' => [
+                'Edit image',
+                'Editing image for this '.str_replace('-', ' ', Str::singular($directory)).'.'
+            ],
+            'directory' => $directory,
+            'resource' => $image->resourceModel($image->resource_model)->where('slug', $resource_slug)->first(),
+            'image' => $image,
+            'viewAssets' => $this->viewAssets,
+            'model' => $model
+        ]);
+    }
+
+
+
+
     // VIEW CONFIRM DELETE FORM
 
-    public function confirmDelete($directory, $resource_slug, ImageProcess $image){
+    public function confirmDelete($directory, $resource_slug, ImageProcess $image) : View
+    {
 
-        $this->page->injectMetadata('Crop image', true, '', true);
+        $this->page->injectMetadata('Delete image', true, '', true);
 
         $model_name = Str::studly(Str::singular($directory));
         $model = $image->resourceModel($model_name);

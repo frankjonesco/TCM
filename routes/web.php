@@ -48,6 +48,9 @@ use App\Http\Controllers\CriminalCaseController;
         Route::get('/{model_slug}/{resource_slug}/images/{image}/crop', 'cropImage');
         Route::post('/{model_slug}/{resource_slug}/images/{image}/render', 'renderImage');
 
+        // EDIT
+        Route::get('/{model_slug}/{resource_slug}/images/{image}/edit', 'editImage');
+
         // UPDATE / SET AS MAIN
         Route::put('/{model_slug}/{resource_slug}/images/{image}/set-as-main', 'setMainImage');
         Route::put('/{model_slug}/{resource_slug}/images/{image}/update', 'updateDetails');
@@ -55,7 +58,7 @@ use App\Http\Controllers\CriminalCaseController;
         // DELETE
         Route::get('/{model_slug}/{resource_slug}/images/{image}/delete', 'confirmDelete');
         Route::delete('/{model_slug}/{resource_slug}/images/{image}/destory', 'destroy');
-
+        
     });
 
 
