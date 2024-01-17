@@ -4,7 +4,7 @@
     
             
 
-        @csrf
+        
 
 
         <div class="flex gap-6">
@@ -30,7 +30,11 @@
                 <x-cards.form>
 
 
-                    <form action="/{{$directory}}/{{$resource->slug}}/images/{{$image->hex}}/destroy" method="POST">
+                    <form action="/{{$directory}}/{{$resource->slug}}/images/{{$image->hex}}/update" method="POST">
+
+
+                        @csrf
+                        @method('PUT')
 
 
                         {{-- BG POSITION --}}

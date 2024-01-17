@@ -167,6 +167,28 @@ class ImageController extends Controller
 
 
 
+    // UPDATE DETAILS
+
+    public function updateDetails(Request $request, $directory, $resource_slug, ImageProcess $image) : RedirectResponse
+    {   
+
+        $request->validate([
+            'bg_position' => 'required',
+            'caption' => '',
+            'copyright' => '',
+            'copyright_link' => ''
+        ]);
+
+        $resource_model = Str::studly(Str::singular($directory));
+        $resource_id = 
+
+
+        return redirect();
+    }
+
+
+
+
     // VIEW CONFIRM DELETE FORM
 
     public function confirmDelete($directory, $resource_slug, ImageProcess $image) : View
